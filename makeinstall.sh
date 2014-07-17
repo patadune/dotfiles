@@ -44,7 +44,7 @@ done
 # liquidprompt installation
 if [ ! -f ~/.liquidprompt/liquidprompt ]; then
     cd
-    git clone https://github.com/nojhan/liquidprompt.git
+    git clone https://github.com/nojhan/liquidprompt.git .liquidprompt
     source ~/.liquidprompt/liquidprompt
 fi
 

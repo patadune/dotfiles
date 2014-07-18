@@ -30,7 +30,7 @@ for file in $files; do
         echo "> Symlink to .$file already exists."
     elif [ -f ~/.$file ]; then
         echo "> Moving old .$file from ~ to $olddir"
-        mv ~/.$file ~/dotfiles_old/
+        mv ~/.$file $olddir
         echo "Creating symlink to $file in home directory."
         ln -s $dir/$file ~/.$file
     else
@@ -60,10 +60,10 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
 else
     # If zsh isn't installed, try with apt-get or yum
     # or tell the user to install zsh :)
-    if [ sudo apt-get install zsh ]; then
+    if sudo apt-get install zsh; then
         echo "zsh installed using apt-get"
         install_zsh
-    elif [ sudo yum install zsh ]; then
+    elif sudo yum install zsh; then
         echo "zsh installed using yum"
         install_zsh
     else

@@ -19,13 +19,13 @@ alias pyserve='google-chrome http://localhost:8000/ && python -m SimpleHTTPServe
 
 # Python stuff
 
-export PIP_DOWNLOAD_CACHE='~/.pip/cache'
+#export PIP_DOWNLOAD_CACHE='~/.pip/cache'
 
 # Virtualenv Wrapper
 
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~/python
-mkdir -p $WORKON_HOME
-source ~/.local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/.virtualenvs
+# export PROJECT_HOME=~/python
+# mkdir -p $WORKON_HOME
+# source ~/.local/bin/virtualenvwrapper.sh
 
 source ~/.liquidprompt/liquidprompt

@@ -184,5 +184,8 @@ PR_RESET="%{${reset_color}%}";
 
 setopt prompt_subst
 
+# custom configuration
+
 source .liquidprompt/liquidprompt
- 
+
+alias st=~/Apps/sublime_text_3/sublime_text

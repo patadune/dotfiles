@@ -186,6 +186,6 @@ setopt prompt_subst
 
 # custom configuration
 
-source .liquidprompt/liquidprompt
+source ~/.liquidprompt/liquidprompt
 
 alias st=~/Apps/sublime_text_3/sublime_text

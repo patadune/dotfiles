@@ -184,8 +184,22 @@ PR_RESET="%{${reset_color}%}";
 
 setopt prompt_subst
 
-# custom configuration
+# Allow double Ctrl-Z combo to stop and resume a job in background
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    bg
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
+# activate liquidprompt (which has been installed by makeinstall.sh)
 source ~/.liquidprompt/liquidprompt
 
+# custom aliases
 alias st=~/Apps/sublime_text_3/sublime_text
+
+# site-specific configuration

@@ -3,11 +3,13 @@
 	email = re3m1s@gmail.com
 [alias]
     amend     = commit --amend -a
+    aa = add -A
     st = status
     ci = commit
     br = branch
     co = checkout
     df = diff --color
+    dc = diff --color --cached
     fetchall  = fetch -v --all
     log       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 # With git >= 1.8.3 you can use %C(auto) for the branch decorator (%d)

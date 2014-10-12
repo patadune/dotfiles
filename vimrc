@@ -43,3 +43,8 @@ set antialias
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
+
+" Supprime les espaces en fin de ligne des sources C
+autocmd BufWritePre *.c :%s/\s\+$//e
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim

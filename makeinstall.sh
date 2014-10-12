@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################
-# .make.sh
+# .makeinstall.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 # based on https://github.com/michaeljsmalley/dotfiles/ installation script
 # TODO : Python virtualenv installation (with virtualenvwrapper ?)
@@ -72,4 +72,4 @@ else
 fi
 }
 
-install_zsh
+# install_zsh

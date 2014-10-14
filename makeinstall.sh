@@ -14,6 +14,12 @@ files="bashrc vimrc vim zshrc gitconfig" # list of files/folders to symlink in h
 
 ##########
 
+# Fetch submodules (liquidprompt, vim plugins...)
+cd $dir
+echo "Fetching dependencies..."
+git submodule init
+git submodule update
+
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ... "
 mkdir -p $olddir
@@ -39,14 +45,6 @@ for file in $files; do
         ln -s $dir/$file ~/.$file
     fi
 done
-
-
-# liquidprompt installation
-if [ ! -f ~/.liquidprompt/liquidprompt ]; then
-    cd
-    git clone https://github.com/nojhan/liquidprompt.git .liquidprompt
-    source ~/.liquidprompt/liquidprompt
-fi
 
 install_zsh () {
 # Test to see if zshell is installed. If it is:

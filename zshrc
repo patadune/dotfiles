@@ -197,7 +197,7 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # activate liquidprompt (which has been installed by makeinstall.sh)
-source ~/.liquidprompt/liquidprompt
+source ~/.dotfiles/liquidprompt/liquidprompt
 
 # custom aliases
 alias st=~/Apps/sublime_text_3/sublime_text

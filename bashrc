@@ -28,4 +28,4 @@ alias pyserve='google-chrome http://localhost:8000/ && python -m SimpleHTTPServe
 # mkdir -p $WORKON_HOME
 # source ~/.local/bin/virtualenvwrapper.sh
 
-source ~/.liquidprompt/liquidprompt
+source ~/.dotfiles/liquidprompt/liquidprompt

@@ -1,0 +1,14 @@
+Host ovh
+    Hostname re3m1.fr
+    User re3m1
+    IdentityFile ~/.ssh/ovh.key
+
+Host git.re3m1.fr
+    Hostname git.re3m1.fr
+    User git
+    IdentityFile ~/.ssh/ovh.key
+
+Host ensimag
+    Hostname pcserveur.ensimag.fr
+    User saurelre
+

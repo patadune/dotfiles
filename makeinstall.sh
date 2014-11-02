@@ -30,6 +30,11 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
+# create .ssh directory (if it doesn't already exists)
+if [ ! -d ~/.ssh ]; then
+    mkdir ~/.ssh
+fi
+
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
     if [ -L ~/.$file ]; then

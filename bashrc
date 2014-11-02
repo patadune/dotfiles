@@ -13,6 +13,8 @@ alias la="ls -a"
 alias lla="ls -al"
 alias vi="vim"
 
+export EDITOR='vim'
+
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 
 alias pyserve='google-chrome http://localhost:8000/ && python -m SimpleHTTPServer'

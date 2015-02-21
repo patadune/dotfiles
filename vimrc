@@ -1,6 +1,15 @@
-" VIM Configuration - Rémi Saurel
+" VIM Configuration - reminus
 
 call pathogen#infect()
+
+if has('gui_running')
+    set background=dark
+    colorscheme solarized
+    set antialias
+else
+    set t_Co=256
+    colorscheme desert256
+end
 
 set title
 set ruler
@@ -28,21 +37,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
-set background=dark
-colorscheme solarized
-"set guifont=DejaVu\ Sans\ Mono\ 10
-set antialias
-
-" Quand je serais grand...
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
-
-"imap <up> <nop>
-"imap <down> <nop>
-"imap <left> <nop>
-"imap <right> <nop>
+map <up> gk
+map <down> gj
 
 " Supprime les espaces en fin de ligne des sources C
 autocmd BufWritePre *.c :%s/\s\+$//e

@@ -19,7 +19,8 @@
     panic     = !tar cvf ../git_panic.tar *
     st        = status
 [core]
-	editor = nano 
+	editor = nano
+	excludesfile = ~/.gitignore
 [push]
 	default = matching
 [color]

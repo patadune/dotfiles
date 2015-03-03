@@ -1,6 +1,16 @@
 " VIM Configuration - reminus
 
-call pathogen#infect()
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-sleuth'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'kien/ctrlp.vim'
+
+
 
 if has('gui_running')
     set background=dark
@@ -33,7 +43,6 @@ set hidden
 
 syntax enable
 
-filetype on
 filetype plugin on
 filetype indent on
 
@@ -41,6 +50,6 @@ map <up> gk
 map <down> gj
 
 " Supprime les espaces en fin de ligne des sources C
-autocmd BufWritePre *.c :%s/\s\+$//e
+" autocmd BufWritePre *.c :%s/\s\+$//e
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim

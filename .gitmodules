@@ -1,15 +1,6 @@
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule "liquidprompt"]
 	path = liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
-[submodule "vim/bundle/colorschemes"]
-	path = vim/bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
-[submodule "vim/bundle/vim-sleuth"]
-	path = vim/bundle/vim-sleuth
-	url = git://github.com/tpope/vim-sleuth.git
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git

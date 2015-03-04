@@ -18,6 +18,7 @@ alias lla="ls -al"
 alias vi="vim"
 
 export EDITOR='vim'
+export PATH="~/bin:$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 

@@ -1,4 +1,9 @@
+*~
 *.o
-.*.swo
-.*.swp
-*.pyc
+.*.sw[op]
+*.py[cod]
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/

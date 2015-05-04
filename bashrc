@@ -1,5 +1,7 @@
 # .bashrc
 
+export LANG="en_US.UTF-8"
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -11,28 +13,21 @@ bind 'set match-hidden-files off'
 PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # User specific aliases and functions
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 alias ls='ls --color=auto'
 alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -al"
 alias vi="vim"
+alias ne="vim"
+alias n="vim"
 
 export EDITOR='vim'
-export PATH="~/bin:$PATH"
+export BROWSER="firefox"
+export PATH="~/.local/bin:$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
-
-alias pyserve='google-chrome http://localhost:8000/ && python -m SimpleHTTPServer'
-
-# Python stuff
-
-#export PIP_DOWNLOAD_CACHE='~/.pip/cache'
-
-# Virtualenv Wrapper
-
-# export WORKON_HOME=~/.virtualenvs
-# export PROJECT_HOME=~/python
-# mkdir -p $WORKON_HOME
-# source ~/.local/bin/virtualenvwrapper.sh
 
 source ~/.dotfiles/liquidprompt/liquidprompt

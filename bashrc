@@ -1,6 +1,7 @@
 # .bashrc
 
 export LANG="en_US.UTF-8"
+export GCC_COLORS=1
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then

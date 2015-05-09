@@ -37,6 +37,7 @@ set incsearch
 set hlsearch
 set visualbell
 set noerrorbells
+set mouse=a
 
 set backspace=indent,eol,start
 set hidden

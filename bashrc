@@ -11,7 +11,6 @@ fi
 # Avoid .folders to appear in tab autocomplete
 bind 'set match-hidden-files off'
 
-PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # User specific aliases and functions
 alias grep='grep --color=auto'
@@ -31,4 +30,18 @@ export PATH="~/.local/bin:$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 
-source ~/.dotfiles/liquidprompt/liquidprompt
+# fancy prompt
+linecolour='\[\e[0;37m\]'
+datecolour='\[\e[1;36m\]'
+if [[ $UID == 0  ]]; then
+    usercolour='\[\e[1;31m\]';
+else
+    usercolour='\[\e[1;32m\]';
+fi
+hostcolour='\[\e[1;33m\]'
+atcolour='\[\e[1;0m\]'
+dircolour='\[\e[1;34m\]'
+reset='\[\e[0m\]'
+dateformat='%R'
+
+PS1="${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}\$ "

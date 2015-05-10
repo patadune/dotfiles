@@ -31,6 +31,8 @@ export PATH="~/.local/bin:$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 
+alias ssh-add="ssh-add ~/.ssh/re3m1.key"
+
 # fancy prompt
 linecolour='\[\e[0;37m\]'
 datecolour='\[\e[1;36m\]'

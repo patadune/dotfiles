@@ -30,6 +30,9 @@ font pango:terminus 12
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# default mode: workspace_layout <default|stacking|tabbed>
+workspace_layout tabbed
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -43,6 +46,7 @@ bar {
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec $(urxvt -e tmux)
 
 # kill focused window
 bindsym $mod+Shift+A kill

@@ -26,6 +26,7 @@ alias n="vim"
 
 export EDITOR='vim'
 export BROWSER="firefox"
+export TERM="rxvt"
 export PATH="~/.local/bin:$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }

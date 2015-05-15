@@ -11,4 +11,5 @@ Host git.re3m1.fr
 Host ensimag
     Hostname pcserveur.ensimag.fr
     User saurelre
+    ForwardX11 yes
 

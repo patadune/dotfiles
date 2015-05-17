@@ -10,7 +10,9 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'kien/ctrlp.vim'
 
-
+if exists('$TMUX')
+  set term=screen-256color
+endif
 
 if has('gui_running')
     set background=dark

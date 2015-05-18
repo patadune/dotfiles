@@ -10,7 +10,7 @@ fi
 
 # Avoid .folders to appear in tab autocomplete
 bind 'set match-hidden-files off'
-
+bind "set completion-ignore-case on"
 
 # User specific aliases and functions
 alias grep='grep --color=auto'
@@ -26,7 +26,7 @@ alias n="vim"
 
 export EDITOR='vim'
 export BROWSER="firefox"
-export TERM="rxvt"
+export TERM="xterm-256color"
 export PATH="~/.local/bin:$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }

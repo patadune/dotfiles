@@ -33,7 +33,7 @@ xterm*termName: xterm-256color
 XTerm*SaveLines: 9000
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
-XTerm*visualbell: true
+XTerm*metaSendsEscape: true
 
 xterm*background: #252525
 xterm*foreground: #FDFDFD

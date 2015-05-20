@@ -27,3 +27,38 @@ URxvt*color14:    #87CEEB
 URxvt*color7:     #DBDCDC
 URxvt*color15:    #FDFDFD
 
+
+XTerm*font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*
+xterm*termName: xterm-256color
+XTerm*SaveLines: 9000
+XTerm*ScrollBar: false
+XTerm*ScrollKey: true
+XTerm*visualbell: true
+
+xterm*background: #252525
+xterm*foreground: #FDFDFD
+!black
+xterm*color0:     #252525
+xterm*color8:     #454545
+!!red
+xterm*color1:     #EF6769
+xterm*color9:     #FC7CA5
+!!green
+xterm*color2:     #A6E22E
+xterm*color10:    #B6E354
+!!yellow
+xterm*color3:     #FD971F
+xterm*color11:    #FD971F
+!!blue
+xterm*color4:     #6495ED
+xterm*color12:    #87CEEB
+!!magenta
+xterm*color5:     #DEB887
+xterm*color13:    #996600
+!!cyan
+xterm*color6:     #B0C4DE
+xterm*color14:    #87CEEB
+!!white
+xterm*color7:     #DBDCDC
+xterm*color15:    #FDFDFD
+

@@ -28,6 +28,11 @@ export EDITOR='vim'
 export BROWSER="firefox"
 export PATH="~/.local/bin:$PATH"
 
+if [ $TERM == "rxvt-unicode-256color" ]
+then
+    export TERM=xterm-256color
+fi
+
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 
 alias ssh-add="ssh-add ~/.ssh/re3m1.key"

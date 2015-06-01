@@ -11,6 +11,11 @@ Host git.re3m1.fr
 Host ensimag
     Hostname pcserveur.ensimag.fr
     User saurelre
+    IdentityFile ~/.ssh/re3m1.key
     ForwardX11 yes
     ForwardX11Trusted yes
 
+Host depots.ensimag.fr
+    User saurelre
+    IdentityFile ~/.ssh/id_projet_gl
+    IdentityFile ~/.ssh/re3m1.key

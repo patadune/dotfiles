@@ -21,12 +21,17 @@ alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -al"
 alias vi="vim"
-alias ne="vim"
-alias n="vim"
 
 export EDITOR='vim'
 export BROWSER="firefox"
-export PATH="~/.local/bin:$PATH"
+
+PATH="~/.local/bin:$PATH"
+PATH=/matieres/3MM1PGL/global/bin:"$PATH"
+PATH=$HOME/Projet_GL/src/main/bin:"$PATH"
+PATH=$HOME/Projet_GL/src/test/script:"$PATH"
+PATH=$HOME/Projet_GL/src/test/script/launchers:"$PATH"
+export PATH
+
 
 if [ $TERM == "rxvt-unicode-256color" ]
 then

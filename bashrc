@@ -25,13 +25,16 @@ alias vi="vim"
 export EDITOR='vim'
 export BROWSER="firefox"
 
-PATH="~/.local/bin:$PATH"
+PATH=$HOME/.local/bin:"$PATH"
 PATH=/matieres/3MM1PGL/global/bin:"$PATH"
 PATH=$HOME/Projet_GL/src/main/bin:"$PATH"
 PATH=$HOME/Projet_GL/src/test/script:"$PATH"
 PATH=$HOME/Projet_GL/src/test/script/launchers:"$PATH"
 export PATH
 
+# Useful env variables for locally installed libraries
+export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 
 if [ $TERM == "rxvt-unicode-256color" ]
 then

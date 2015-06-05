@@ -8,9 +8,13 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Avoid .folders to appear in tab autocomplete
-bind 'set match-hidden-files off'
-bind "set completion-ignore-case on"
+# Code running only in interactive shells
+if [ -t 1 ]
+then
+    # Avoid .folders to appear in tab autocomplete
+    bind 'set match-hidden-files off'
+    bind "set completion-ignore-case on"
+fi
 
 # User specific aliases and functions
 alias grep='grep --color=auto'

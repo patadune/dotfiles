@@ -21,25 +21,26 @@ alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -al"
 alias vi="vim"
+alias h="history"
+alias c="clear"
 
 export EDITOR='vim'
 export BROWSER="firefox"
-
-PATH=$HOME/.local/bin:"$PATH"
-PATH=/matieres/3MM1PGL/global/bin:"$PATH"
-PATH=$HOME/Projet_GL/src/main/bin:"$PATH"
-PATH=$HOME/Projet_GL/src/test/script:"$PATH"
-PATH=$HOME/Projet_GL/src/test/script/launchers:"$PATH"
-export PATH
 
 # Useful env variables for locally installed libraries
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 
-if [ $TERM == "rxvt-unicode-256color" ]
-then
-    export TERM=xterm-256color
-fi
+PATH=$HOME/.local/bin:"$PATH"
+
+# Projet GL variables
+PATH=$HOME/ensimag/GL/global/bin:"$PATH"
+PATH=/matieres/3MM1PGL/global/bin:"$PATH"
+PATH=$HOME/Projet_GL/src/main/bin:"$PATH"
+PATH=$HOME/Projet_GL/src/test/script:"$PATH"
+PATH=$HOME/Projet_GL/src/test/script/launchers:"$PATH"
+
+export PATH
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 

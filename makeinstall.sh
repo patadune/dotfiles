@@ -1,9 +1,8 @@
 #!/bin/bash
 ############################
-# .makeinstall.sh
+# makeinstall.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 # based on https://github.com/michaeljsmalley/dotfiles/ installation script
-# TODO : Python virtualenv installation (with virtualenvwrapper ?)
 ############################
 
 ########## Variables
@@ -14,7 +13,7 @@ files="bashrc vimrc vim zshrc gitconfig gitignore tmux.conf i3 Xresources mutt s
 
 ##########
 
-# Fetch submodules (liquidprompt, vim plugins...)
+# Fetch submodules (vundle)
 cd $dir
 echo "Fetching dependencies..."
 git submodule init
@@ -30,9 +29,14 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
-# create .ssh directory (if it doesn't already exists)
+# create .ssh and .config directory (if they doesn't already exists)
+# TODO : check automatically if directory exists for config files in folders ?
 if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
+fi
+
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
 fi
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files

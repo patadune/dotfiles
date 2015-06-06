@@ -29,18 +29,14 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
-# create .ssh and .config directory (if they doesn't already exists)
-# TODO : check automatically if directory exists for config files in folders ?
-if [ ! -d ~/.ssh ]; then
-    mkdir ~/.ssh
-fi
-
-if [ ! -d ~/.config ]; then
-    mkdir ~/.config
-fi
-
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
+    confdir=`dirname $file`
+    if [ ! -d ~/.$confdir ]; then
+        echo "Creating .$confdir before symlinking..."
+        mkdir -p ~/.$confdir
+    fi
+
     if [ -L ~/.$file ]; then
         echo "> Symlink to .$file already exists."
     elif [ -f ~/.$file ]; then

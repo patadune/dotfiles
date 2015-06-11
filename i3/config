@@ -11,7 +11,7 @@
 
 exec --no-startup-id /usr/lib64/gnome-settings-daemon/gnome-settings-daemon
 
-exec urxvt
+exec xterm
 
 set $mod Mod4
 
@@ -45,18 +45,14 @@ bar {
 }
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec $(urxvt -e tmux)
+bindsym $mod+Return exec xterm
+# bindsym $mod+Return exec $(xterm -e tmux)
 
 # kill focused window
 bindsym $mod+Shift+A kill
 
-# start dmenu (a program launcher)
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+d exec dmenu_run
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# start j4-dmenu-desktop (a program launcher)
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left

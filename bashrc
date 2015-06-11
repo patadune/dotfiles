@@ -31,6 +31,12 @@ alias c="clear"
 export EDITOR='vim'
 export BROWSER="firefox"
 
+# TODO check which media player is available ?
+export MEDIAPLAYER="mpv"
+
+alias fip="$MEDIAPLAYER http://mp3lg.tdf-cdn.com/fip/all/fiphautdebit.mp3"
+alias inter="$MEDIAPLAYER http://mp3lg.tdf-cdn.com/franceinter/all/franceinterhautdebit.mp3"
+
 # Useful env variables for locally installed libraries
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig

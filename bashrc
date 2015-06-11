@@ -65,3 +65,5 @@ reset='\[\e[0m\]'
 dateformat='%R'
 
 PS1="${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}\$ "
+
+cd

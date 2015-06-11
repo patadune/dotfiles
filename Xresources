@@ -35,6 +35,10 @@ XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 XTerm*metaSendsEscape: true
 
+XTerm*VT100.cutNewLine: false
+XTerm*VT100.cutToBeginningOfLine: false
+XTerm*VT100.charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+
 xterm*background: #252525
 xterm*foreground: #FDFDFD
 !black

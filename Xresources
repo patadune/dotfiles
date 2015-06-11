@@ -34,6 +34,7 @@ XTerm*SaveLines: 9000
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 XTerm*metaSendsEscape: true
+XTerm*visualBell: false
 
 XTerm*VT100.cutNewLine: false
 XTerm*VT100.cutToBeginningOfLine: false

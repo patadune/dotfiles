@@ -20,6 +20,7 @@ files="
     i3
     Xresources
     mutt
+    conkyrc
     ssh/config
     config/redshift.conf
 "

@@ -24,6 +24,7 @@ files="
     ssh/config
     config/redshift.conf
     config/compton.conf
+    config/dunstrc
     config/mpv/input.conf
 "
 

@@ -10,6 +10,7 @@ For i3 :
     * scrot
     * compton
     * rofi
+    * ponymix
     * xterm
     * imagemagick
 

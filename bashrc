@@ -5,7 +5,12 @@ export GCC_COLORS=1
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    source /etc/bashrc
+fi
+
+# Command not found helper
+if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
+    source /usr/share/doc/pkgfile/command-not-found.bash
 fi
 
 # Code running only in interactive shells

@@ -9,7 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id /usr/lib64/gnome-settings-daemon/gnome-settings-daemon
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+exec --no-startup-id compton
 
 exec xterm
 
@@ -49,7 +51,7 @@ bindsym $mod+Return exec xterm
 # bindsym $mod+Return exec $(xterm -e tmux)
 
 # kill focused window
-bindsym $mod+Shift+A kill
+bindsym $mod+Shift+Q kill
 
 # start j4-dmenu-desktop (a program launcher)
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
@@ -173,3 +175,15 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle &&
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
+# Thinkpad X220 control keys
+# Screenshot                                                           (PrtScr)
+# +shift ⇒ focused window only
+bind 107       exec $(scrot    -e 'mv $f ~/Images/Screenshots')
+bind Shift+107 exec $(scrot -u -e 'mv $f ~/Images/Screenshots')
+
+
+# lock, battery, sleep, hibernate                           (Fn+[F2|F3|F4|F12])
+bind 160 exec ~/.i3/lockblur.sh
+#bind 244 exec $()
+bind 150 exec ~/.i3/lockblur.sh && systemctl suspend
+#bind 213 exec

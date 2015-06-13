@@ -23,6 +23,7 @@ files="
     conkyrc
     ssh/config
     config/redshift.conf
+    config/compton.conf
     config/mpv/input.conf
 "
 

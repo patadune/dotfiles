@@ -14,6 +14,11 @@ if exists('$TMUX')
   set term=screen-256color
 endif
 
+if &term == 'xterm-256color' || &term == 'screen-256color'
+  let &t_SI = "\<Esc>[5 q"
+  let &t_EI = "\<Esc>[1 q"
+endif
+
 if has('gui_running')
     set background=dark
     colorscheme solarized

@@ -10,6 +10,7 @@ For i3 :
     * scrot
     * compton
     * rofi
+    * j4-dmenu-desktop
     * ponymix
     * xterm
     * imagemagick

@@ -12,6 +12,7 @@
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id compton
+exec --no-startup-id redshift &
 exec dropbox start
 exec xss-lock -- ~/.i3/lockblur.sh &
 
@@ -56,7 +57,8 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+Q kill
 
 # start j4-dmenu-desktop (a program launcher)
-bindsym $mod+d exec --no-startup-id $(rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -terminal xterm)
+bindsym $mod+d exec j4-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id $(rofi -show window -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -terminal xterm)
 
 # change focus
 bindsym $mod+j focus left

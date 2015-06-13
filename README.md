@@ -9,7 +9,7 @@ For i3 :
     * dunst
     * scrot
     * compton
-    * j4-dmenu-desktop
+    * rofi
     * xterm
     * imagemagick
 

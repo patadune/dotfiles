@@ -13,6 +13,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id compton
 exec dropbox start
+exec xss-lock -- ~/.i3/lockblur.sh &
 
 exec xterm
 
@@ -176,6 +177,25 @@ bindsym XF86AudioMute exec ponymix toggle && pkill -USR1 -x i3status
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
+# Power management
+set $Locker ~/.i3/lockblur.sh
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    # bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+
 # Thinkpad X220 control keys
 # Screenshot                                                           (PrtScr)
 # +shift ⇒ focused window only
@@ -184,7 +204,8 @@ bind Shift+107 exec $(scrot -u -e 'mv $f ~/Images/Screenshots')
 
 
 # lock, battery, sleep, hibernate                           (Fn+[F2|F3|F4|F12])
-bind 160 exec ~/.i3/lockblur.sh
+bind 160 exec $Locker
 #bind 244 exec $()
-bind 150 exec ~/.i3/lockblur.sh && systemctl suspend
+bind 150 exec $Locker && systemctl suspend
 #bind 213 exec
+

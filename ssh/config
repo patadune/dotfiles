@@ -19,3 +19,6 @@ Host depots.ensimag.fr
     User saurelre
     IdentityFile ~/.ssh/id_projet_gl
     IdentityFile ~/.ssh/re3m1.key
+
+Host gitlab.com
+    IdentityFile ~/.ssh/id_projet_gl

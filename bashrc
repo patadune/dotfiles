@@ -39,8 +39,8 @@ export BROWSER="firefox"
 # TODO check which media player is available ?
 export MEDIAPLAYER="mpv"
 
-alias fip="$MEDIAPLAYER http://mp3lg.tdf-cdn.com/fip/all/fiphautdebit.mp3"
-alias inter="$MEDIAPLAYER http://mp3lg.tdf-cdn.com/franceinter/all/franceinterhautdebit.mp3"
+alias fip="$MEDIAPLAYER http://audio.scdn.arkena.com/11016/fip-midfi128.mp3"
+alias inter="$MEDIAPLAYER http://audio.scdn.arkena.com/11008/franceinter-midfi128.mp3"
 
 # Useful env variables for locally installed libraries
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"

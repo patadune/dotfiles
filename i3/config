@@ -16,8 +16,6 @@ exec --no-startup-id redshift &
 exec dropbox start
 exec xss-lock -- ~/.i3/lockblur.sh &
 
-exec xterm
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -180,7 +178,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Power management
-set $Locker ~/.i3/lockblur.sh
+set $Locker ~/.i3/lockblur.sh && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -206,8 +204,10 @@ bind Shift+107 exec $(scrot -u -e 'mv $f ~/Images/Screenshots')
 
 
 # lock, battery, sleep, hibernate                           (Fn+[F2|F3|F4|F12])
-bind 160 exec $Locker
+bind 160 exec --no-startup-id $Locker
 #bind 244 exec $()
-bind 150 exec $Locker && systemctl suspend
+bind 150 exec --no-startup-id $Locker && systemctl suspend
 #bind 213 exec
 
+exec --no-startup-id i3-msg 'workspace 2; exec firefox'
+exec --no-startup-id i3-msg 'workspace 1; exec xterm'

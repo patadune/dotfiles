@@ -77,4 +77,7 @@ dateformat='%R'
 
 PS1="${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}\$ "
 
+# allows symlink creation on Windows
+export CYGWIN="winsymlinks:native"
+
 cd

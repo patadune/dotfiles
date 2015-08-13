@@ -1,4 +1,4 @@
-" VIM Configuration - reminus
+" VIM Configuration - Rémi Saurel
 
 set nocompatible
 filetype off
@@ -21,7 +21,7 @@ endif
 
 if has('gui_running')
     set background=dark
-    colorscheme solarized
+    colorscheme molokai
     set antialias
 else
     set t_Co=256
@@ -30,37 +30,85 @@ end
 
 set title
 set ruler
+set mouse =a
 set number
 set wrap
 set cursorline
 set scrolloff=3
-set tabstop =4
-set shiftwidth =4
-set softtabstop =4
-set expandtab
+""set tabstop =4
+""set shiftwidth =4
+""set softtabstop =4
+""set expandtab
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set visualbell
+set novisualbell
 set noerrorbells
-set mouse=a
+set fileformat=unix
+set autoread
 
 set backspace=indent,eol,start
 set hidden
 
 syntax enable
 
+filetype on
 filetype plugin on
 filetype indent on
 
-map <up> gk
-map <down> gj
+set guifont=Monospace\ 9
+set antialias
 
-" Supprime les espaces en fin de ligne des sources C
-" autocmd BufWritePre *.c :%s/\s\+$//e
+" Déplacement vertical plus logique
+map  <up> gk
+map  <down> gj
+
+"" Supprime les espaces en fin de ligne des sources C
+"autocmd BufWritePre *.c :%s/\s\+$//e
+
+" Variables pour plugins
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let mapleader=","
+set timeout timeoutlen=1500
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+let g:ctrlp_working_path_mode = 0
+
+function! VisualSelection(direction) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction

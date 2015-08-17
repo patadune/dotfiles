@@ -11,7 +11,6 @@ For i3 :
     * compton
     * rofi
     * j4-dmenu-desktop
-    * ponymix
     * xterm
     * imagemagick
 

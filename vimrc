@@ -7,6 +7,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sleuth'
+Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'kien/ctrlp.vim'
 
@@ -70,7 +71,7 @@ map  <down> gj
 " Variables pour plugins
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
-set timeout timeoutlen=1500
+set timeout timeoutlen=1000 ttimeoutlen=0
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -85,6 +86,10 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+
+" Set french spell language
+set spelllang=fr
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

@@ -1,36 +1,18 @@
-URxvt.scrollBar: false
-URxvt.font: xft:terminus:size=10
-URxvt*background: #252525
-URxvt*foreground: #FDFDFD
-!black
-URxvt*color0:     #252525
-URxvt*color8:     #454545
-!!red
-URxvt*color1:     #EF6769
-URxvt*color9:     #FC7CA5
-!!green
-URxvt*color2:     #A6E22E
-URxvt*color10:    #B6E354
-!!yellow
-URxvt*color3:     #FD971F
-URxvt*color11:    #FD971F
-!!blue
-URxvt*color4:     #6495ED
-URxvt*color12:    #87CEEB
-!!magenta
-URxvt*color5:     #DEB887
-URxvt*color13:    #996600
-!!cyan
-URxvt*color6:     #B0C4DE
-URxvt*color14:    #87CEEB
-!!white
-URxvt*color7:     #DBDCDC
-URxvt*color15:    #FDFDFD
+*saveLines : 32767
 
+Xft*antialias : true
+Xft*hinting   : 1
+Xft*dpi       : 96
 
+! XTerm configuration
 XTerm*font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*
+
+XTerm*utf8            : 1
+XTerm*eightBitInput   : false
+XTerm*eightBitControl : false
+XTerm*eightBitOutput  : true
+
 xterm*termName: xterm-256color
-XTerm*SaveLines: 9000
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 XTerm*metaSendsEscape: true
@@ -40,30 +22,30 @@ XTerm*cutNewLine: false
 XTerm*cutToBeginningOfLine: false
 XTerm*charClass: 36:48,45-47:48,95:48,123:48,125:48,126:48
 
-xterm*background: #252525
-xterm*foreground: #FDFDFD
+*background: #252525
+*foreground: #FDFDFD
 !black
-xterm*color0:     #252525
-xterm*color8:     #454545
+*color0:     #252525
+*color8:     #454545
 !!red
-xterm*color1:     #EF6769
-xterm*color9:     #FC7CA5
+*color1:     #EF6769
+*color9:     #FC7CA5
 !!green
-xterm*color2:     #A6E22E
-xterm*color10:    #B6E354
+*color2:     #A6E22E
+*color10:    #B6E354
 !!yellow
-xterm*color3:     #FD971F
-xterm*color11:    #FD971F
+*color3:     #FD971F
+*color11:    #FD971F
 !!blue
-xterm*color4:     #6495ED
-xterm*color12:    #87CEEB
+*color4:     #6495ED
+*color12:    #87CEEB
 !!magenta
-xterm*color5:     #DEB887
-xterm*color13:    #996600
+*color5:     #DEB887
+*color13:    #996600
 !!cyan
-xterm*color6:     #B0C4DE
-xterm*color14:    #87CEEB
+*color6:     #B0C4DE
+*color14:    #87CEEB
 !!white
-xterm*color7:     #DBDCDC
-xterm*color15:    #FDFDFD
+*color7:     #DBDCDC
+*color15:    #FDFDFD
 

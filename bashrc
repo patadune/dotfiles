@@ -46,16 +46,7 @@ alias inter="$MEDIAPLAYER http://audio.scdn.arkena.com/11008/franceinter-midfi12
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 
-PATH=$HOME/.local/bin:"$PATH"
-
-# Projet GL variables
-PATH=$HOME/ensimag/GL/global/bin:"$PATH"
-PATH=/matieres/3MM1PGL/global/bin:"$PATH"
-PATH=$HOME/Projet_GL/src/main/bin:"$PATH"
-PATH=$HOME/Projet_GL/src/test/script:"$PATH"
-PATH=$HOME/Projet_GL/src/test/script/launchers:"$PATH"
-
-export PATH
+export PATH=$HOME/.local/bin:"$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 

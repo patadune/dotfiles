@@ -13,7 +13,6 @@ files="
     bashrc
     vimrc
     vim
-    zshrc
     gitconfig
     gitignore
     tmux.conf
@@ -67,29 +66,3 @@ for file in $files; do
         ln -s $dir/$file ~/.$file
     fi
 done
-
-install_zsh () {
-# Test to see if zshell is installed. If it is:
-if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-    # Set the default shell to zsh if it isn't currently set to zsh
-    if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-        echo "changing default shell to zsh"
-        chsh -s $(which zsh)
-        echo "done"
-    fi
-else
-    # If zsh isn't installed, try with apt-get or yum
-    # or tell the user to install zsh :)
-    if sudo apt-get install zsh; then
-        echo "zsh installed using apt-get"
-        install_zsh
-    elif sudo yum install zsh; then
-        echo "zsh installed using yum"
-        install_zsh
-    else
-        echo "Please install zsh, then re-run this script!"
-    fi
-fi
-}
-
-# install_zsh

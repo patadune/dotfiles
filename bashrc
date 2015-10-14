@@ -13,14 +13,6 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
     source /usr/share/doc/pkgfile/command-not-found.bash
 fi
 
-# Code running only in interactive shells
-if [ -t 1 ]
-then
-    # Avoid .folders to appear in tab autocomplete
-    bind 'set match-hidden-files off'
-    bind "set completion-ignore-case on"
-fi
-
 # User specific aliases and functions
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -75,8 +67,6 @@ function mp3 {
                --audio-format=mp3 \
                --audio-quality=1 "$*"
 }
-
-alias ssh-add="ssh-add ~/.ssh/re3m1.key"
 
 # fancy prompt
 linecolour='\[\e[0;37m\]'

@@ -1,0 +1,12 @@
+set input-meta on
+set output-meta on
+set convert-meta off
+
+set match-hidden-files off
+set completion-ignore-case on
+set completion-map-case on
+set colored-stats on
+set visible-stats on
+
+"\ep": history-search-backward
+"\en": history-search-forward

@@ -13,6 +13,17 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
     source /usr/share/doc/pkgfile/command-not-found.bash
 fi
 
+# History management
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTTIMEFORMAT='%F %T '
+HISTCONTROL=ignoreboth
+HISTIGNORE='ll:bg:fg:history'
+PROMPT_COMMAND='history -a'
+shopt -s histappend
+shopt -s cmdhist
+
+
 # User specific aliases and functions
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'

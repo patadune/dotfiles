@@ -12,6 +12,8 @@ olddir=~/.dotfiles_old # old dotfiles backup directory
 files="
     bashrc
     inputrc
+    xinitrc
+    bash_profile
     vimrc
     vim
     gitconfig

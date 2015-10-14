@@ -1,19 +1,12 @@
 Host ovh
     Hostname re3m1.fr
     User re3m1
-    IdentityFile ~/.ssh/re3m1.key
 
 Host git.re3m1.fr
-    Hostname git.re3m1.fr
     User git
-    IdentityFile ~/.ssh/re3m1.key
 
 Host ensimag
     Hostname pcserveur.ensimag.fr
     User saurelre
-    IdentityFile ~/.ssh/re3m1.key
     ForwardX11 yes
     ForwardX11Trusted yes
-
-Host gitlab.com
-    IdentityFile ~/.ssh/re3m1.key

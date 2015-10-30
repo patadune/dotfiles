@@ -61,9 +61,11 @@ filetype indent on
 set guifont=Monospace\ 9
 set antialias
 
-" Déplacement vertical plus logique
+" Natural vertical movements
 map  <up> gk
 map  <down> gj
+map j gj
+map k gk
 
 "" Supprime les espaces en fin de ligne des sources C
 "autocmd BufWritePre *.c :%s/\s\+$//e
@@ -71,7 +73,6 @@ map  <down> gj
 " Variables pour plugins
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
-set timeout timeoutlen=1000 ttimeoutlen=0
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -117,3 +118,20 @@ function! VisualSelection(direction) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+" eliminate delay after pressing ESC to switch back to normal mode
+set timeoutlen=1000 ttimeoutlen=0
+
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif

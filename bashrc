@@ -96,9 +96,10 @@ dateformat='%R'
 PS1="${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}\$ "
 
 # Cygwin! Wooo!
-if [ `uname -s` == CYGWIN* ]; then
+if [[ `uname -s` == *"CYGWIN"* ]]; then
     export SSH_AUTH_SOCK="C:\cygwin64\keyagent.sock"
     export CYGWIN="winsymlinks:native"
+    export TMPDIR=$TMP
 fi
 
 cd

@@ -1,6 +1,6 @@
 [user]
-    name = re3m1
-    email = re3m1s@gmail.com
+    name = patadune
+    email = patadune@gmail.com
 [alias]
     amend = commit --amend -a
     aa = add -A

@@ -49,7 +49,7 @@ alias inter="$MEDIAPLAYER http://audio.scdn.arkena.com/11008/franceinter-midfi12
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
 
-export PATH=$HOME/.local/bin:"$PATH"
+export PATH=$HOME/.local/bin:$HOME/.dotfiles/bin:"$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 

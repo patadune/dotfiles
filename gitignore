@@ -4,6 +4,6 @@
 *.py[cod]
 
 # IntelliJ IDEA
-.idea/
-*.iml
+workspace.xml
+tasks.xml
 out/

@@ -13,6 +13,7 @@ For i3 :
 * j4-dmenu-desktop
 * xterm
 * imagemagick
+* gohufont
 
 For mpv :
 

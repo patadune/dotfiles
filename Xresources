@@ -5,7 +5,7 @@ Xft*hinting   : 1
 Xft*dpi       : 96
 
 ! XTerm configuration
-XTerm*font: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*
+XTerm*faceName: xft:gohufont:size=8
 
 XTerm*utf8            : 1
 XTerm*eightBitInput   : false

@@ -93,7 +93,7 @@ dircolour='\[\e[1;34m\]'
 reset='\[\e[0m\]'
 dateformat='%R'
 
-PS1="${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}\$ "
+PS1="┌─[${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}]\n└> "
 
 # Cygwin! Wooo!
 if [[ `uname -s` == *"CYGWIN"* ]]; then

@@ -14,7 +14,7 @@ exec --no-startup-id dunst
 exec --no-startup-id compton
 exec --no-startup-id redshift &
 exec dropbox start
-exec xss-lock -- ~/.i3/lockblur.sh &
+exec xss-lock -- ~/.config/i3/lockblur.sh &
 
 set $mod Mod4
 
@@ -40,7 +40,7 @@ workspace_layout tabbed
 floating_modifier $mod
 
 bar {
-  status_command i3status -c ~/.i3/i3status.conf
+  status_command i3status -c ~/.config/i3/i3status.conf
   position top
   # mode hide
   mode dock
@@ -178,7 +178,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 
 # Power management
-set $Locker ~/.i3/lockblur.sh && sleep 1
+set $Locker ~/.config/i3/lockblur.sh && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

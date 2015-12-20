@@ -19,7 +19,6 @@ files="
     gitconfig
     gitignore
     tmux.conf
-    i3
     Xresources
     mutt
     conkyrc
@@ -27,6 +26,7 @@ files="
     config/redshift.conf
     config/compton.conf
     config/dunstrc
+    config/i3
     config/mpv/input.conf
     config/nvim
 "

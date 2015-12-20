@@ -58,9 +58,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
-set guifont=Monospace\ 9
-set antialias
-
 " Natural vertical movements
 map  <up> gk
 map  <down> gj

@@ -28,6 +28,7 @@ files="
     config/compton.conf
     config/dunstrc
     config/mpv/input.conf
+    config/nvim
 "
 
 ##########

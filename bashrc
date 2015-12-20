@@ -36,13 +36,13 @@ alias vi="vim"
 alias h="history"
 alias c="clear"
 
-if command -v foo >/dev/null 2>&1; then
-    # Standard vim setup
-    export EDITOR='vim'
-else
+if command -v nvim >/dev/null 2>&1; then
     # Next-gen ultra futuristic neovim setup
     export EDITOR='nvim'
     alias vim="nvim"
+else
+    # Standard vim setup
+    export EDITOR='vim'
 fi
 
 export BROWSER="firefox"

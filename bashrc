@@ -36,7 +36,15 @@ alias vi="vim"
 alias h="history"
 alias c="clear"
 
-export EDITOR='vim'
+if command -v foo >/dev/null 2>&1; then
+    # Standard vim setup
+    export EDITOR='vim'
+else
+    # Next-gen ultra futuristic neovim setup
+    export EDITOR='nvim'
+    alias vim="nvim"
+fi
+
 export BROWSER="firefox"
 
 # TODO check which media player is available ?

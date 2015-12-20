@@ -1,6 +1,6 @@
 Host ovh
     Hostname re3m1.fr
-    User re3m1
+    User patadune
 
 Host git.re3m1.fr
     User git

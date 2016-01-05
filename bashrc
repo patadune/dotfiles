@@ -72,16 +72,22 @@ fi
 hostcolour='\[\e[1;33m\]'
 atcolour='\[\e[1;0m\]'
 dircolour='\[\e[1;34m\]'
+hourcolour='\[\e[1;37m\]'
 reset='\[\e[0m\]'
 dateformat='%R'
 
-PS1="┌─[${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${reset}]\n└> "
+PS1="┌─[${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${atcolour}]-[${hourcolour}\t${reset}]\n└> "
 
 # Cygwin! Wooo!
 if [[ `uname -s` == *"CYGWIN"* ]]; then
     export SSH_AUTH_SOCK="C:\cygwin64\keyagent.sock"
     export CYGWIN="winsymlinks:native"
     export TMPDIR=$TMP
+fi
+
+# Ruby/rubygem
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi
 
 cd

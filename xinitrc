@@ -32,4 +32,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+setxkbmap fr
+xset -b # Remove speaker beep
+
+# Set background using feh if configured
+if [ -f $HOME/.fehbg ]; then
+  $HOME/.fehbg
+fi
+
 exec i3

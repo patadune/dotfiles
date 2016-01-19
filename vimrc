@@ -1,15 +1,22 @@
 " VIM Configuration - Rémi Saurel
 
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-fugitive'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'kien/ctrlp.vim'
+" Automatic vim-plug installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-fugitive'
+Plug 'flazz/vim-colorschemes'
+Plug 'kien/ctrlp.vim'
+
+call plug#end()
 
 if exists('$TMUX')
   set term=screen-256color
@@ -51,12 +58,6 @@ set autoread
 
 set backspace=indent,eol,start
 set hidden
-
-syntax enable
-
-filetype on
-filetype plugin on
-filetype indent on
 
 " Natural vertical movements
 map  <up> gk

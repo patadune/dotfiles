@@ -14,7 +14,8 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'flazz/vim-colorschemes'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -65,13 +66,12 @@ map  <down> gj
 map j gj
 map k gk
 
-"" Supprime les espaces en fin de ligne des sources C
-"autocmd BufWritePre *.c :%s/\s\+$//e
+map <C-p> :Files<CR>
 
 " Variables pour plugins
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
 
+" Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 

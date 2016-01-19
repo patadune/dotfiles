@@ -91,3 +91,5 @@ if which ruby >/dev/null && which gem >/dev/null; then
 fi
 
 cd
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

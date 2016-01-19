@@ -15,18 +15,18 @@ if exists('$TMUX')
   set term=screen-256color
 endif
 
-if &term == 'xterm-256color' || &term == 'screen-256color'
-  let &t_SI = "\<Esc>[5 q"
-  let &t_EI = "\<Esc>[1 q"
-endif
+colorscheme desert256
 
-if has('gui_running')
-    set background=dark
-    colorscheme molokai
-    set antialias
+" Nvim/Vim specific configuration
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 else
-    set t_Co=256
-    colorscheme desert256
+  set t_Co=256
+  if &term == 'xterm-256color' || &term == 'screen-256color'
+    let &t_SI = "\<Esc>[5 q"
+    let &t_EI = "\<Esc>[1 q"
+  endif
 end
 
 set title
@@ -96,24 +96,24 @@ endif
 let g:ctrlp_working_path_mode = 0
 
 function! VisualSelection(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
+  let l:saved_reg = @"
+  execute "normal! vgvy"
 
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+  let l:pattern = escape(@", '\\/.*$^~[]')
+  let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
+  if a:direction == 'b'
+    execute "normal ?" . l:pattern . "^M"
+  elseif a:direction == 'gv'
+    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+  elseif a:direction == 'replace'
+    call CmdLine("%s" . '/'. l:pattern . '/')
+  elseif a:direction == 'f'
+    execute "normal /" . l:pattern . "^M"
+  endif
 
-    let @/ = l:pattern
-    let @" = l:saved_reg
+  let @/ = l:pattern
+  let @" = l:saved_reg
 endfunction
 
 " eliminate delay after pressing ESC to switch back to normal mode
@@ -125,10 +125,18 @@ let &runtimepath.=','.vimDir
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
-    " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
-    let &undodir = myUndoDir
-    set undofile
+  let myUndoDir = expand(vimDir . '/undodir')
+  " Create dirs
+  call system('mkdir ' . vimDir)
+  call system('mkdir ' . myUndoDir)
+  let &undodir = myUndoDir
+  set undofile
 endif
+
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+map <F2> :call TrimWhiteSpace()<CR>

@@ -16,6 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'vim-scripts/dbext.vim'
 
 call plug#end()
 
@@ -134,6 +135,7 @@ if has('persistent_undo')
   set undofile
 endif
 
+
 " Removes trailing spaces
 function TrimWhiteSpace()
   %s/\s*$//
@@ -141,3 +143,11 @@ function TrimWhiteSpace()
 endfunction
 
 map <F2> :call TrimWhiteSpace()<CR>
+
+" Configuration dbext pour TPs de SGBD
+let g:dbext_default_type = 'ORA'         "Les TP se font sur Oracle
+let dbext_default_user = 'saurelre'   "Login
+let dbext_default_passwd = 'saurelre'   "Mot de passe (SQL != mdp ensibm à priori)
+let dbext_default_host = 'ensioracle1'   "À changer selon le serveur à utiliser
+let dbext_default_srvname = 'ensioracle1'  "idem
+

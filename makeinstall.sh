@@ -20,6 +20,7 @@ files="
     gitignore
     tmux.conf
     Xresources
+    terminfo
     mutt
     conkyrc
     ssh/config

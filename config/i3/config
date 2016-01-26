@@ -48,7 +48,7 @@ bar {
 }
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec $(xterm -e tmux)
 
 # kill focused window
@@ -210,4 +210,4 @@ bind 150 exec --no-startup-id $Locker && systemctl suspend
 #bind 213 exec
 
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
-exec --no-startup-id i3-msg 'workspace 1; exec xterm'
+exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal'

@@ -35,6 +35,7 @@ alias lla="ls -al"
 alias vi="vim"
 alias h="history"
 alias c="clear"
+alias open="xdg-open"
 
 if command -v nvim >/dev/null 2>&1; then
     # Next-gen ultra futuristic neovim setup
@@ -86,10 +87,15 @@ if [[ `uname -s` == *"CYGWIN"* ]]; then
 fi
 
 # Ruby/rubygem
-if which ruby >/dev/null && which gem >/dev/null; then
+if command -v ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi
 
 cd
 
+# Check fzf presence. Installation is handled by vim-plug
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Check pew presence and source config
+# TODO : change that to handle virtualenvs better in prompt
+command -v pew >/dev/null 2>&1 && source $(pew shell_config)

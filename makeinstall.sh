@@ -23,10 +23,12 @@ files="
     terminfo
     mutt
     conkyrc
+    dircolors
     ssh/config
     config/redshift.conf
     config/compton.conf
     config/dunstrc
+    config/termite
     config/i3
     config/mpv/input.conf
     config/nvim

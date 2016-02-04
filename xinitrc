@@ -35,6 +35,12 @@ fi
 setxkbmap fr
 xset -b # Remove speaker beep
 
+if command -v termite >/dev/null 2>&1; then
+    export TERMINAL='termite'
+else
+    export TERMINAL='xterm'
+fi
+
 # Set background using feh if configured
 if [ -f $HOME/.fehbg ]; then
   $HOME/.fehbg

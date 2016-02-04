@@ -46,16 +46,6 @@ else
     export EDITOR='vim'
 fi
 
-if command -v mosh >/dev/null 2>&1; then
-    alias ssh="mosh"
-fi
-
-if command -v urxvt >/dev/null 2>&1; then
-    export TERMINAL='urxvt'
-else
-    export TERMINAL='xterm'
-fi
-
 export BROWSER="firefox"
 
 # TODO check which media player is available ?
@@ -109,3 +99,6 @@ cd
 # Check pew presence and source config
 # TODO : change that to handle virtualenvs better in prompt
 command -v pew >/dev/null 2>&1 && source $(pew shell_config)
+
+# ls colored output support on termite
+eval $(dircolors ~/.dircolors)

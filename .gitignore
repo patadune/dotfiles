@@ -2,3 +2,4 @@ vim/bundle
 vim/spell
 vim/.netrwhist
 vim/undodir
+vim/autoload

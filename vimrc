@@ -11,15 +11,17 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-fugitive'
-Plug 'flazz/vim-colorschemes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'vim-scripts/dbext.vim'
+Plug 'tpope/vim-sensible' " Defaults everyone can agree on
+Plug 'tpope/vim-sleuth' " Heuristically set buffer options
+Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
+Plug 'flazz/vim-colorschemes' " Lots of colorschemes
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Command-line fuzzy finder
+Plug 'junegunn/fzf.vim' " Vim bindings for fzf (:Files somehow replaces Ctrl-P)
+Plug 'vim-scripts/dbext.vim' " Database access to many DBMS (especially Oracle, if sqlplus is installed)
 
 call plug#end()
 
+" Get correct colors under tmux
 if exists('$TMUX')
   set term=screen-256color
 endif
@@ -38,28 +40,18 @@ else
   endif
 end
 
-set title
-set ruler
-set mouse =a
-set number
-set wrap
-set cursorline
-set scrolloff=3
-""set tabstop =4
-""set shiftwidth =4
-""set softtabstop =4
-""set expandtab
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-set novisualbell
-set noerrorbells
-set fileformat=unix
-set autoread
-
-set backspace=indent,eol,start
-set hidden
+set mouse=a " Enable mouse support in terminal for every mode
+set number " Display line numbers
+set wrap " Wrap long lines
+set cursorline " Display underline on the current line
+set ignorecase " Ignore case on search patterns by default
+set smartcase " Become case-sensitive on search patterns if a capital letter is entered
+set hlsearch " Highlight search matches
+set novisualbell " Disable visual bells
+set noerrorbells " Disable error bells
+set confirm " Enable dialog for unsaved buffers on exit
+set hidden " Hide buffer when unloaded
+set spelllang=fr " French spellcheck
 
 " Natural vertical movements
 map  <up> gk
@@ -67,19 +59,15 @@ map  <down> gj
 map j gj
 map k gk
 
+" Ctrl-P binding for fzf.vim
 map <C-p> :Files<CR>
 
-" Variables pour plugins
+" Plugins leader key
 let mapleader=","
 
 " Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -87,15 +75,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-
-" Set french spell language
-set spelllang=fr
-
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-let g:ctrlp_working_path_mode = 0
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f')<CR>
+vnoremap <silent> # :call VisualSelection('b')<CR>
 
 function! VisualSelection(direction) range
   let l:saved_reg = @"
@@ -118,10 +101,8 @@ function! VisualSelection(direction) range
   let @" = l:saved_reg
 endfunction
 
-" eliminate delay after pressing ESC to switch back to normal mode
-set timeoutlen=1000 ttimeoutlen=0
-
 " Put plugins and dictionaries in this dir (also on Windows)
+" TODO : this is not portable between vim and neovim
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 

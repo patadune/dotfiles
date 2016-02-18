@@ -56,7 +56,6 @@ bindsym $mod+Shift+Q kill
 
 # start j4-dmenu-desktop (a program launcher)
 bindsym $mod+d exec j4-dmenu-desktop
-bindsym $mod+Shift+d exec --no-startup-id $(rofi -show window -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -terminal xterm)
 
 # change focus
 bindsym $mod+j focus left
@@ -169,9 +168,14 @@ for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 
 # binding pulseaudio controls to volume keys
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -USR1 -x i3status 
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -USR1 -x i3status
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -USR1 -x i3status
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -USR1 -x i3status
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # binding brightness controls
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10

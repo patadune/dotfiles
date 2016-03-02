@@ -48,11 +48,14 @@ fi
 
 export BROWSER="firefox"
 
-# TODO check which media player is available ?
-export MEDIAPLAYER="mpv"
+if command -v mpv >/dev/null 2>&1; then
+    export MEDIAPLAYER="mpv"
+else
+    export MEDIAPLAYER="cvlc"
+fi
 
-alias fip="$MEDIAPLAYER http://audio.scdn.arkena.com/11016/fip-midfi128.mp3"
-alias inter="$MEDIAPLAYER http://audio.scdn.arkena.com/11008/franceinter-midfi128.mp3"
+alias fip="\$MEDIAPLAYER http://audio.scdn.arkena.com/11016/fip-midfi128.mp3"
+alias inter="\$MEDIAPLAYER http://audio.scdn.arkena.com/11008/franceinter-midfi128.mp3"
 
 # Useful env variables for locally installed libraries
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"

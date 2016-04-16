@@ -96,9 +96,6 @@ fi
 
 cd
 
-# Check fzf presence. Installation is handled by vim-plug
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # Check pew presence and source config
 # TODO : change that to handle virtualenvs better in prompt
 command -v pew >/dev/null 2>&1 && source $(pew shell_config)

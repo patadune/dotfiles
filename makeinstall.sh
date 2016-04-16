@@ -16,6 +16,7 @@ files="
     bash_profile
     vimrc
     vim
+    fzf
     gitconfig
     gitignore
     tmux.conf
@@ -35,6 +36,15 @@ files="
 "
 
 ##########
+
+# Fetch submodules (vundle)
+cd $dir
+echo "Fetching dependencies..."
+git submodule init
+git submodule update
+
+# fzf installation
+./fzf/install --all
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ... "

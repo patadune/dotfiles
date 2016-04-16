@@ -15,8 +15,7 @@ Plug 'tpope/vim-sensible' " Defaults everyone can agree on
 Plug 'tpope/vim-sleuth' " Heuristically set buffer options
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
 Plug 'flazz/vim-colorschemes' " Lots of colorschemes
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Command-line fuzzy finder
-Plug 'junegunn/fzf.vim' " Vim bindings for fzf (:Files somehow replaces Ctrl-P)
+Plug 'kien/ctrlp.vim' " Fuzzy file finder
 Plug 'vim-scripts/dbext.vim' " Database access to many DBMS (especially Oracle, if sqlplus is installed)
 
 call plug#end()
@@ -59,13 +58,11 @@ map  <down> gj
 map j gj
 map k gk
 
-" Ctrl-P binding for fzf.vim
-map <C-p> :Files<CR>
 
-" Plugins leader key
+" Plugins variables
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
 
-" Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 

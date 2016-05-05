@@ -24,3 +24,8 @@ For bash :
 * bash-completion
 * pkgfile : queries in pacman database, needed for command-not-found script
 * youtube-dl : for play/mp3 bash functions
+
+TODO
+----
+
+* Add instructions for tearing-free config for Xorg on Intel graphics adapter

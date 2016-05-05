@@ -26,7 +26,6 @@ files="
     dircolors
     ssh/config
     config/redshift.conf
-    config/compton.conf
     config/dunstrc
     config/termite
     config/i3

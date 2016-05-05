@@ -4,10 +4,6 @@ Xft*antialias : true
 Xft*hinting   : 1
 Xft*dpi       : 96
 
-! URxvt configuration
-URxvt.scrollBar: false
-URxvt.font: xft:gohufont:pixelsize=11
-
 ! XTerm configuration
 XTerm*faceName: xft:gohufont:size=8
 

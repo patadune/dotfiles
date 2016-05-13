@@ -23,15 +23,21 @@ PROMPT_COMMAND='history -a'
 shopt -s histappend
 shopt -s cmdhist
 
+# Next-gen ultra futuristic rust file lister support
+if command -v exa >/dev/null 2>&1; then
+    export LS=exa
+else
+    export LS=ls
+fi
 
 # User specific aliases and functions
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias ls='ls --color=auto'
-alias ll="ls -l"
-alias la="ls -a"
-alias lla="ls -al"
+alias ls="$LS --color=auto"
+alias ll="$LS -l"
+alias la="$LS -a"
+alias lla="$LS -al"
 alias vi="vim"
 alias h="history"
 alias c="clear"

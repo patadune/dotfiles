@@ -11,12 +11,13 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible' " Defaults everyone can agree on
 Plug 'tpope/vim-sleuth' " Heuristically set buffer options
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
 Plug 'flazz/vim-colorschemes' " Lots of colorschemes
-Plug 'kien/ctrlp.vim' " Fuzzy file finder
-Plug 'vim-scripts/dbext.vim' " Database access to many DBMS (especially Oracle, if sqlplus is installed)
+Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file finder
+Plug 'rking/ag.vim'
 
 call plug#end()
 
@@ -122,10 +123,4 @@ endfunction
 
 map <F2> :call TrimWhiteSpace()<CR>
 
-" Configuration dbext pour TPs de SGBD
-let g:dbext_default_type = 'ORA'         "Les TP se font sur Oracle
-let dbext_default_user = 'saurelre'   "Login
-let dbext_default_passwd = 'saurelre'   "Mot de passe (SQL != mdp ensibm à priori)
-let dbext_default_host = 'ensioracle1'   "À changer selon le serveur à utiliser
-let dbext_default_srvname = 'ensioracle1'  "idem
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o

@@ -52,6 +52,10 @@ else
     export EDITOR='vim'
 fi
 
+# (neo)vim opened under a new termite instance,a nicer font (Inconsolata)
+# see bin/fakegvim for details)
+alias gvim="fakegvim"
+
 export BROWSER="firefox"
 
 if command -v mpv >/dev/null 2>&1; then

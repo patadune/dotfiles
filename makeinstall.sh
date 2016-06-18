@@ -10,27 +10,28 @@
 dir=~/.dotfiles # dotfiles directory
 olddir=~/.dotfiles_old # old dotfiles backup directory
 files="
-    bashrc
-    inputrc
-    xinitrc
     bash_profile
-    vimrc
-    vim
-    gitconfig
-    gitignore
-    tmux.conf
-    Xresources
-    terminfo
-    mutt
-    conkyrc
-    dircolors
-    ssh/config
-    config/redshift.conf
+    bashrc
     config/dunstrc
-    config/termite
     config/i3
     config/mpv/input.conf
     config/nvim
+    config/redshift.conf
+    config/termite
+    conkyrc
+    dircolors
+    gitconfig
+    gitignore
+    inputrc
+    mutt
+    ssh/config
+    terminfo
+    tmux.conf
+    vim
+    vimrc
+    xinitrc
+    Xresources
+    yaourtrc
 "
 
 ##########

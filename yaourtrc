@@ -1,0 +1,2 @@
+# Disable package compression, to speed-up AUR packages installation
+PKGEXT=.pkg.tar

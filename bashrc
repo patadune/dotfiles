@@ -113,9 +113,11 @@ command -v pew >/dev/null 2>&1 && source $(pew shell_config)
 # ls colored output support on termite
 eval $(dircolors ~/.dircolors)
 
-# Commands to be executed before the prompt is displayed
-# Save current working dir
-PROMPT_COMMAND='pwd > "${XDG_RUNTIME_DIR}/.cwd"'
+if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
+    # Commands to be executed before the prompt is displayed
+    # Save current working dir
+    PROMPT_COMMAND='pwd > "${XDG_RUNTIME_DIR}/.cwd"'
 
-# Change to saved working dir
-[[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
+    # Change to saved working dir
+    [[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
+fi

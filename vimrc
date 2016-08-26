@@ -112,10 +112,15 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
 
 if exists('g:FakeGvim')
+  map <C-z> <nop>
   let g:lightline = {
         \'colorscheme': 'gruvbox',
         \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
         \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+  \}
+else
+  let g:lightline = {
+        \'colorscheme': 'gruvbox'
   \}
 endif
 

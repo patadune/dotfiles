@@ -54,7 +54,7 @@ fi
 
 # (neo)vim opened under a new termite instance,a nicer font (Inconsolata)
 # see bin/fakegvim for details)
-alias gvim="fakegvim"
+alias gvim="fakegvim&"
 
 export BROWSER="firefox"
 

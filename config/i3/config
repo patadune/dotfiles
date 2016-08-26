@@ -11,9 +11,7 @@
 
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id redshift &
-exec --no-startup-id syncthing-gtk
-exec xss-lock -- ~/.config/i3/lockblur.sh &
+exec --no-startup-id redshift
 
 set $mod Mod4
 
@@ -38,12 +36,18 @@ workspace_layout tabbed
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+hide_edge_borders both
+
+new_window normal 1
+
 bar {
   status_command i3status -c ~/.config/i3/i3status.conf
   position top
-  # mode hide
   mode dock
-
+  colors {
+    statusline #ebdbb2
+    background #282828
+  }
 }
 
 # start a terminal
@@ -55,6 +59,8 @@ bindsym $mod+Shift+Q kill
 
 # start j4-dmenu-desktop (a program launcher)
 bindsym $mod+d exec j4-dmenu-desktop
+
+bindsym $mod+Shift+d exec rofi -show run
 
 # change focus
 bindsym $mod+j focus left
@@ -107,6 +113,7 @@ bindsym $mod+q focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
+# TODO this only works on azerty layout
 bindsym $mod+ampersand workspace 1
 bindsym $mod+eacute workspace 2
 bindsym $mod+quotedbl workspace 3
@@ -119,6 +126,7 @@ bindsym $mod+ccedilla workspace 9
 bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
+# TODO this only works on azerty layout
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+eacute move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -165,6 +173,11 @@ bindsym $mod+r mode "resize"
 
 for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
+
+# Remove title bar for some applications
+for_window [class="Firefox"] border pixel 1
+for_window [class="google-chrome"] border pixel 1
+for_window [class="mpv"] border pixel 1
 
 # binding pulseaudio controls to volume keys
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -USR1 -x i3status

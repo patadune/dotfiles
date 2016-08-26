@@ -10,3 +10,7 @@ Host imag
     User saurelre
     ForwardX11 yes
     ForwardX11Trusted yes
+
+Host depots
+    Hostname depots.ensimag.fr
+    User saurelre

@@ -104,6 +104,9 @@ Plug 'rking/ag.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-eunuch'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
 

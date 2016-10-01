@@ -23,6 +23,7 @@ files="
     gitconfig
     gitignore
     inputrc
+    makepkg.conf
     mutt
     ssh/config
     terminfo
@@ -31,7 +32,6 @@ files="
     vimrc
     xinitrc
     Xresources
-    yaourtrc
 "
 
 ##########

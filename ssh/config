@@ -1,5 +1,5 @@
 Host ovh
-    Hostname re3m1.fr
+    Hostname tadun.es
     User patadune
 
 Host git.re3m1.fr
@@ -8,9 +8,19 @@ Host git.re3m1.fr
 Host imag
     Hostname pcserveur.ensimag.fr
     User saurelre
+    ProxyCommand ssh depots nc %h %p 2> /dev/null
     ForwardX11 yes
     ForwardX11Trusted yes
 
 Host depots
     Hostname depots.ensimag.fr
     User saurelre
+
+Host ntnu tdt4200s1 tdt4200s2
+    User remijs
+
+Host ntnu
+    Hostname login.stud.ntnu.no
+
+Host tdt4200s1 tdt4200s2
+    Hostname %h.idi.ntnu.no

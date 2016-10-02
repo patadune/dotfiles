@@ -99,11 +99,6 @@ if [[ `uname -s` == *"CYGWIN"* ]]; then
     export TMPDIR=$TMP
 fi
 
-# Ruby/rubygem
-if command -v ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
-    PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-fi
-
 cd
 
 # Check pew presence and source config
@@ -121,3 +116,5 @@ if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
     # Change to saved working dir
     [[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
 fi
+
+export PATH=/opt/Xilinx/Vivado/2016.2/bin:"$PATH"

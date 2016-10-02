@@ -37,7 +37,7 @@ set novisualbell " Disable visual bells
 set noerrorbells " Disable error bells
 set confirm " Enable dialog for unsaved buffers on exit
 set hidden " Hide buffer when unloaded
-set spelllang=fr " French spellcheck
+set spelllang=en " English spellcheck
 set clipboard+=unnamed " Use system clipboard instead of internal register
 
 " Natural vertical movements on wrapped lines

@@ -64,8 +64,8 @@ else
     export MEDIAPLAYER="cvlc"
 fi
 
-alias fip="\$MEDIAPLAYER http://audio.scdn.arkena.com/11016/fip-midfi128.mp3"
-alias inter="\$MEDIAPLAYER http://audio.scdn.arkena.com/11008/franceinter-midfi128.mp3"
+alias fip="\$MEDIAPLAYER http://direct.fipradio.fr/live/fip-midfi.mp3"
+alias inter="\$MEDIAPLAYER http://direct.franceinter.fr/live/franceinter-midfi.mp3"
 
 # Useful env variables for locally installed libraries
 export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"

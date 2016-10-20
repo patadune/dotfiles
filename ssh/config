@@ -2,8 +2,12 @@ Host ovh
     Hostname tadun.es
     User patadune
 
-Host git.re3m1.fr
+Host git.tadun.es
     User git
+
+Host gitlab
+    User git
+    Hostname git.tadun.es
 
 Host imag
     Hostname pcserveur.ensimag.fr
@@ -16,11 +20,11 @@ Host depots
     Hostname depots.ensimag.fr
     User saurelre
 
-Host ntnu tdt4200s1 tdt4200s2
+Host ntnu tdt4200s1 tdt4200s2 dmlab?? *.ntnu.no
     User remijs
 
 Host ntnu
     Hostname login.stud.ntnu.no
 
-Host tdt4200s1 tdt4200s2
+Host tdt4200s1 tdt4200s2 dmlab??
     Hostname %h.idi.ntnu.no

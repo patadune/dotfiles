@@ -215,8 +215,8 @@ bindsym $mod+Pause mode "$mode_system"
 # Thinkpad X220 control keys
 # Screenshot                                                           (PrtScr)
 # +shift ⇒ focused window only
-bind 107       exec $(scrot    -e 'mv $f ~/Images/Screenshots')
-bind Shift+107 exec $(scrot -u -e 'mv $f ~/Images/Screenshots')
+bind 107       exec $(scrot    -e 'mv $f ~/Images/Screenshots/')
+bind Shift+107 exec $(scrot -u -e 'mv $f ~/Images/Screenshots/')
 
 
 # lock, battery, sleep, hibernate                           (Fn+[F2|F3|F4|F12])

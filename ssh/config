@@ -20,11 +20,3 @@ Host depots
     Hostname depots.ensimag.fr
     User saurelre
 
-Host ntnu tdt4200s1 tdt4200s2 dmlab?? *.ntnu.no
-    User remijs
-
-Host ntnu
-    Hostname login.stud.ntnu.no
-
-Host tdt4200s1 tdt4200s2 dmlab??
-    Hostname %h.idi.ntnu.no

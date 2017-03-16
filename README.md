@@ -10,7 +10,7 @@ For i3 :
 * scrot : screenshot support (also needed by locker script)
 * compton (aur) : compositor (vsync support)
 * j4-dmenu-desktop (aur) : Mod-D application launcher
-* termite : terminal emulator
+* urxvt : terminal emulator
 * imagemagick : needed by locker script
 * gohufont (aur) : compact terminal font
 * playerctl (aur) : multimedia keys support

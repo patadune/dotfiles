@@ -35,8 +35,8 @@ fi
 setxkbmap fr
 xset -b # Remove speaker beep
 
-if command -v termite >/dev/null 2>&1; then
-    export TERMINAL='termite'
+if command -v urxvt >/dev/null 2>&1; then
+    export TERMINAL='urxvt'
 else
     export TERMINAL='xterm'
 fi

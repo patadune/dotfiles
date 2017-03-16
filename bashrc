@@ -115,5 +115,3 @@ if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
     # Change to saved working dir
     [[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
 fi
-
-export PATH=/opt/Xilinx/Vivado/2016.2/bin:"$PATH"

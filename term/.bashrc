@@ -55,7 +55,7 @@ fi
 # see bin/fakegvim for details)
 alias gvim="fakegvim&"
 
-export BROWSER="google-chrome-stable"
+export BROWSER="firefox"
 
 if command -v mpv >/dev/null 2>&1; then
     export MEDIAPLAYER="mpv"

@@ -1,6 +1,8 @@
 Dependencies
 ============
 
+These are my dotfiles, managed via GNU stow.
+
 Those dependencies are available on Archlinux repos or in AUR.
 
 For i3 :

@@ -51,10 +51,6 @@ else
     export EDITOR='vim'
 fi
 
-# (neo)vim opened under a new termite instance,a nicer font (Inconsolata)
-# see bin/fakegvim for details)
-alias gvim="fakegvim&"
-
 export BROWSER="firefox"
 
 if command -v mpv >/dev/null 2>&1; then
@@ -103,9 +99,6 @@ cd
 # Check pew presence and source config
 # TODO : change that to handle virtualenvs better in prompt
 command -v pew >/dev/null 2>&1 && source $(pew shell_config)
-
-# ls colored output support on termite
-eval $(dircolors ~/.dircolors)
 
 if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
     # Commands to be executed before the prompt is displayed

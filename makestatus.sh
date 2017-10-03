@@ -12,9 +12,7 @@ files="
     config/mpv/input.conf
     config/nvim
     config/redshift.conf
-    config/termite
     conkyrc
-    dircolors
     gitconfig
     gitignore
     inputrc

@@ -22,21 +22,14 @@ PROMPT_COMMAND='history -a'
 shopt -s histappend
 shopt -s cmdhist
 
-# Next-gen ultra futuristic rust file lister support
-if command -v exa >/dev/null 2>&1; then
-    export LS=exa
-else
-    export LS=ls
-fi
-
 # User specific aliases and functions
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias ls="$LS --color=auto"
-alias ll="$LS -l"
-alias la="$LS -a"
-alias lla="$LS -al"
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -al"
 alias vi="vim"
 alias h="history"
 alias c="clear"
@@ -86,13 +79,6 @@ reset='\[\e[0m\]'
 dateformat='%R'
 
 PS1="┌─[${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${atcolour}]-[${hourcolour}\t${reset}]\n└> "
-
-# Cygwin! Wooo!
-if [[ `uname -s` == *"CYGWIN"* ]]; then
-    export SSH_AUTH_SOCK="C:\cygwin64\keyagent.sock"
-    export CYGWIN="winsymlinks:native"
-    export TMPDIR=$TMP
-fi
 
 cd
 

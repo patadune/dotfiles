@@ -5,29 +5,9 @@ These are my dotfiles, managed via GNU stow.
 
 Those dependencies are available on Archlinux repos or in AUR.
 
-For i3 :
-
-* network-manager-applet : network applet
-* dunst : desktop notifications
-* scrot : screenshot support (also needed by locker script)
-* compton (aur) : compositor (vsync support)
-* j4-dmenu-desktop (aur) : Mod-D application launcher
-* urxvt : terminal emulator
-* imagemagick : needed by locker script
-* gohufont (aur) : compact terminal font
-* playerctl (aur) : multimedia keys support
-
-For mpv :
-
-* libva-intel-driver : hardware video decoding
-
 For bash :
 
 * bash-completion
 * pkgfile : queries in pacman database, needed for command-not-found script
 * youtube-dl : for yt/mp3 bash functions
 
-TODO
-----
-
-* Add instructions for tearing-free config for Xorg on Intel graphics adapter

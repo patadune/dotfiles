@@ -1,4 +1,4 @@
-*saveLines : 32767
+XTerm*saveLines : 32767
 
 XTerm*utf8            : 1
 XTerm*eightBitInput   : false
@@ -15,34 +15,31 @@ XTerm*cutNewLine: false
 XTerm*cutToBeginningOfLine: false
 XTerm*charClass: 36:48,45-47:48,95:48,123:48,125:48,126:48
 
-URxvt.scrollBar: false
-URxvt.font: *-gohufont-medium-r-*-*-11-*-*-*-*-*-*-*
-
 ! hard contrast: *background: #1d2021
-*background: #282828
+XTerm*background: #282828
 ! soft contrast: *background: #32302f
-*foreground: #ebdbb2
+XTerm*foreground: #ebdbb2
 ! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
+XTerm*color0:  #282828
+XTerm*color8:  #928374
 ! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
+XTerm*color1:  #cc241d
+XTerm*color9:  #fb4934
 ! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
+XTerm*color2:  #98971a
+XTerm*color10: #b8bb26
 ! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
+XTerm*color3:  #d79921
+XTerm*color11: #fabd2f
 ! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
+XTerm*color4:  #458588
+XTerm*color12: #83a598
 ! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
+XTerm*color5:  #b16286
+XTerm*color13: #d3869b
 ! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
+XTerm*color6:  #689d6a
+XTerm*color14: #8ec07c
 ! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+XTerm*color7:  #a89984
+XTerm*color15: #ebdbb2

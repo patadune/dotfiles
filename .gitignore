@@ -1,5 +1,3 @@
-vim/bundle
-vim/spell
-vim/.netrwhist
-vim/undodir
-vim/autoload
+neovim/.config/nvim/bundle
+neovim/.config/nvim/undodir
+neovim/.config/nvim/autoload

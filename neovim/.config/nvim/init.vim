@@ -46,9 +46,6 @@ map  <down> gj
 map j gj
 map k gk
 
-" Highlight trailing spaces/tabs
-set list listchars=tab:\ \ ,trail:·
-
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k

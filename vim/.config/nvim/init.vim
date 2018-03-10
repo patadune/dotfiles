@@ -32,6 +32,10 @@ set hidden " Hide buffer when unloaded
 set spelllang=en " English spellcheck
 set clipboard+=unnamed " Use system clipboard instead of internal register
 
+" Autoreload files on focus
+set autoread
+au FocusGained,BufEnter * :checktime
+
 " Natural vertical movements on wrapped lines
 map  <up> gk
 map  <down> gj
@@ -90,6 +94,7 @@ Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
 Plug 'flazz/vim-colorschemes' " Lots of colorschemes
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file finder
 Plug 'rking/ag.vim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'

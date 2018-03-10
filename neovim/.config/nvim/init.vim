@@ -2,19 +2,11 @@
 
 """ Compatibility
 
-" Get correct colors under tmux
-if exists('$TMUX')
-  set term=screen-256color
-endif
-
 " Nvim/Vim specific configuration
 if has('nvim')
   " Escape to get out of the terminal mode
   tnoremap <Esc> <C-\><C-n>
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 else
-  set t_Co=256
   set nocompatible
 
   " Insert mode cursor under xterm

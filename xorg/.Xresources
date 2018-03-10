@@ -5,7 +5,7 @@ XTerm*eightBitInput   : false
 XTerm*eightBitControl : false
 XTerm*eightBitOutput  : true
 
-xterm*termName: xterm-256color
+XTerm*termName: xterm-256color
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 XTerm*metaSendsEscape: true
@@ -13,7 +13,7 @@ XTerm*visualBell: false
 
 XTerm*cutNewLine: false
 XTerm*cutToBeginningOfLine: false
-XTerm*charClass: 36:48,45-47:48,95:48,123:48,125:48,126:48
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 ! hard contrast: *background: #1d2021
 XTerm*background: #282828

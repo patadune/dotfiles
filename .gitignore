@@ -1,3 +1,3 @@
-neovim/.config/nvim/bundle
-neovim/.config/nvim/undodir
-neovim/.config/nvim/autoload
+vim/.config/nvim/bundle
+vim/.config/nvim/undodir
+vim/.config/nvim/autoload

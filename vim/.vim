@@ -1,1 +1,1 @@
-../neovim/.config/nvim/
+.config/nvim

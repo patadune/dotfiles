@@ -45,6 +45,7 @@ else
 fi
 
 export BROWSER="firefox"
+export TERMINAL="xterm"
 
 if command -v mpv >/dev/null 2>&1; then
     export MEDIAPLAYER="mpv"

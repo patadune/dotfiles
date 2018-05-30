@@ -1,7 +1,5 @@
 # .bashrc
 
-export GCC_COLORS=1
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     source /etc/bashrc
@@ -56,11 +54,7 @@ fi
 alias fip="\$MEDIAPLAYER http://direct.fipradio.fr/live/fip-midfi.mp3"
 alias inter="\$MEDIAPLAYER http://direct.franceinter.fr/live/franceinter-midfi.mp3"
 
-# Useful env variables for locally installed libraries
-export LD_LIBRARY_PATH=$HOME/.local/lib:"$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig
-
-export PATH=$HOME/.local/bin:$HOME/.dotfiles/bin:"$PATH"
+export PATH=$HOME/.local/bin:"$PATH"
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 
@@ -82,10 +76,6 @@ dateformat='%R'
 PS1="┌─[${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${atcolour}]-[${hourcolour}\t${reset}]\n└> "
 
 cd
-
-# Check pew presence and source config
-# TODO : change that to handle virtualenvs better in prompt
-command -v pew >/dev/null 2>&1 && source $(pew shell_config)
 
 if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
     # Commands to be executed before the prompt is displayed

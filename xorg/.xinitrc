@@ -34,4 +34,6 @@ fi
 
 xset -b # Remove speaker beep
 
-exec startxfce4
+eval $(ssh-agent)
+
+exec i3

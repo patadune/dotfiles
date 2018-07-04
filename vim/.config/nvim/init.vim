@@ -8,33 +8,31 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
 else
   set nocompatible
-
-  " Insert mode cursor under xterm
-  if &term == 'xterm-256color' || &term == 'screen-256color'
-    let &t_SI = "\<Esc>[5 q"
-    let &t_EI = "\<Esc>[1 q"
-  endif
 end
 
 """ General settings
+:autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
-set mouse=a " Enable mouse support in terminal for every mode
-set number " Display line numbers
-set wrap " Wrap long lines
+au BufNewFile,BufRead *.log if getline(1) =~? '^Tarmac' | set filetype=tarmac_log | endif
+au BufNewFile,BufRead *.trs set filetype=dstb_trs
+au BufNewFile,BufRead *.sv set filetype=verilog
+
+set nowrap " Don't wrap long lines
 set cursorline " Display underline on the current line
 set ignorecase " Ignore case on search patterns by default
 set smartcase " Become case-sensitive on search patterns if a capital letter is entered
 set hlsearch " Highlight search matches
+set incsearch
 set novisualbell " Disable visual bells
 set noerrorbells " Disable error bells
 set confirm " Enable dialog for unsaved buffers on exit
 set hidden " Hide buffer when unloaded
 set spelllang=en " English spellcheck
-set clipboard+=unnamed " Use system clipboard instead of internal register
+set clipboard=unnamed " Use system clipboard instead of internal register
+set foldmethod=syntax
+set backspace=indent,eol,start
 
-" Autoreload files on focus
-set autoread
-au FocusGained,BufEnter * :checktime
+set colorcolumn=130
 
 " Natural vertical movements on wrapped lines
 map  <up> gk
@@ -63,20 +61,12 @@ if has('persistent_undo')
   set undofile
 endif
 
-" Removes trailing spaces
-function! TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
-
-nnoremap <F2> :call TrimWhiteSpace()<CR>
 nnoremap <F10> :so $MYVIMRC<CR>
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
 
 
 """ Plugins
-
 
 " Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -87,20 +77,18 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
 Plug 'tpope/vim-sensible' " Defaults everyone can agree on
-Plug 'tpope/vim-sleuth' " Heuristically set buffer options
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
-Plug 'flazz/vim-colorschemes' " Lots of colorschemes
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file finder
-Plug 'rking/ag.vim'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-eunuch'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'rking/ag.vim' " Wrapper for The Silver Searcher
+
+Plug 'tpope/vim-sleuth' " Heuristically set indent type and size
+Plug 'tpope/vim-eunuch' " :SudoWrite et al.
+Plug 'itchyny/lightline.vim' " Nicer status bar, so light you won't notice it's here
+Plug 'morhetz/gruvbox' " One colorscheme to rule them all
+Plug 'wincent/terminus' " Better integration with terminal emulators and multiplexers
+Plug 'mhinz/vim-startify' " Nice start page (with deep quotes regarding life and stuff)
 
 call plug#end()
 
@@ -108,14 +96,9 @@ call plug#end()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
 
-if exists('g:FakeGvim')
-  let g:lightline = {
-        \'colorscheme': 'gruvbox',
-        \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-        \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-  \}
-endif
-
 set background=dark
 
 silent! colorscheme gruvbox
+
+"Same as */# but don't move to next/previous occurence
+nmap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>

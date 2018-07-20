@@ -81,7 +81,7 @@ Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
 Plug 'tpope/vim-sensible' " Defaults everyone can agree on
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file finder
-Plug 'rking/ag.vim' " Wrapper for The Silver Searcher
+Plug 'mileszs/ack.vim' " Wrapper for The Silver Searcher
 
 Plug 'tpope/vim-sleuth' " Heuristically set indent type and size
 Plug 'tpope/vim-eunuch' " :SudoWrite et al.
@@ -95,6 +95,14 @@ call plug#end()
 " Plugins variables
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 set background=dark
 

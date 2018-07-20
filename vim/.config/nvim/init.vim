@@ -86,8 +86,9 @@ Plug 'mileszs/ack.vim' " Wrapper for The Silver Searcher
 
 Plug 'tpope/vim-sleuth' " Heuristically set indent type and size
 Plug 'tpope/vim-eunuch' " :SudoWrite et al.
-Plug 'itchyny/lightline.vim' " Nicer status bar, so light you won't notice it's here
 Plug 'morhetz/gruvbox' " One colorscheme to rule them all
+Plug 'itchyny/lightline.vim' " Nicer status bar, so light you won't notice it's here
+Plug 'shinchu/lightline-gruvbox.vim' " Seems self-explanatory...
 Plug 'wincent/terminus' " Better integration with terminal emulators and multiplexers
 Plug 'mhinz/vim-startify' " Nice start page (with deep quotes regarding life and stuff)
 
@@ -104,6 +105,9 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 set background=dark
 

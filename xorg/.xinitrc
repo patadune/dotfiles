@@ -2,6 +2,7 @@
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
+userfonts=$HOME/.local/share/fonts
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -21,6 +22,11 @@ fi
 
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
+fi
+
+if [ -d "$userfonts" ]; then
+    xset +fp "$userfonts"
+    xset fp rehash
 fi
 
 # start some nice programs

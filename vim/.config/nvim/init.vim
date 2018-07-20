@@ -31,8 +31,10 @@ set spelllang=en " English spellcheck
 set clipboard=unnamed " Use system clipboard instead of internal register
 set foldmethod=syntax
 set backspace=indent,eol,start
+set wildmode=longest,list " mimic bash completion behaviour
 
 set colorcolumn=130
+set updatetime=200
 
 " Natural vertical movements on wrapped lines
 map  <up> gk
@@ -63,8 +65,7 @@ endif
 
 nnoremap <F10> :so $MYVIMRC<CR>
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
 
 """ Plugins
 

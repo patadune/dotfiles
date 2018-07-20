@@ -11,6 +11,8 @@ XTerm*font: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 XTerm*metaSendsEscape: true
+XTerm*backarrowKey: false
+XTerm*ttyModes: erase ^?
 XTerm*visualBell: false
 
 XTerm*cutNewLine: false

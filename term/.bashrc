@@ -85,7 +85,3 @@ if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
     # Change to saved working dir
     [[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
 fi
-
-if grep -q Microsoft /proc/version; then
-    source start_keepass_agent.sh
-fi

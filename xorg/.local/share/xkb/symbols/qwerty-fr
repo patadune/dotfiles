@@ -1,18 +1,15 @@
-
-// qwerty-fr:
-
 partial alphanumeric_keys 
 xkb_symbols "qwerty-fr"
 {
-    include "us(basic)"
+    include "gb(basic)"
     include "level3(ralt_switch)"
 
-    name[Group1]= "US keyboard with french symbols - AltGr combination";
+    name[Group1]= "UK keyboard with french symbols - AltGr combination";
 
-    key <TLDE> { [ grave,        asciitilde,  dead_grave,      dead_tilde      ] };
+    key <TLDE> { [ grave,        notsign,     brokenbar,       dead_grave      ] };
     key <AE01> { [ 1,            exclam,      onesuperior,     exclamdown      ] };
-    key <AE02> { [ 2,            at,          twosuperior,     dead_doubleacute ] };
-    key <AE03> { [ 3,            numbersign,  threesuperior,   dead_macron     ] };
+    key <AE02> { [ 2,            quotedbl,    twosuperior,     dead_doubleacute] };
+    key <AE03> { [ 3,            sterling,    threesuperior,   dead_macron     ] };
     key <AE04> { [ 4,            dollar,      ecircumflex,     Ecircumflex     ] };
     key <AE05> { [ 5,            percent,     EuroSign,        sterling        ] };
     key <AE06> { [ 6,            asciicircum, dead_circumflex, dead_caron      ] };
@@ -46,10 +43,10 @@ xkb_symbols "qwerty-fr"
     key <AC08> { [ k,            K,           idiaeresis,      Idiaeresis      ] };
     key <AC09> { [ l,            L,           odiaeresis,      Odiaeresis      ] };
     key <AC10> { [ semicolon,    colon,       paragraph,       section         ] };
-    key <AC11> { [ apostrophe,   quotedbl,    dead_acute,      dead_diaeresis  ] };
-    key <BKSL> { [ backslash,    bar,         brokenbar,       oslash          ] };
+    key <AC11> { [ apostrophe,   at,          dead_acute,      dead_caron      ] };
+    key <BKSL> { [ numbersign,   tilde,       dead_tilde,      bar             ] };
 
-    key <LSGT> { [ less,         greater,     lessthanequal,   greaterthanequal ] };
+    key <LSGT> { [ backslash,    bar,         bar,             bar             ] };
     key <AB01> { [ z,            Z,           adiaeresis,      Adiaeresis      ] };
     key <AB02> { [ x,            X,           multiply,        division        ] };
     key <AB03> { [ c,            C,           ccedilla,        Ccedilla        ] };

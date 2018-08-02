@@ -1,8 +1,8 @@
 #!/bin/sh
 
 userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
 userfonts=$HOME/.local/share/fonts
+userxkb=$HOME/.local/share/xkb
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
@@ -20,13 +20,13 @@ if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi
 
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
-
 if [ -d "$userfonts" ]; then
     xset +fp "$userfonts"
     xset fp rehash
+fi
+
+if [ -d "$userxkb" ]; then
+    setxkbmap qwerty-fr -option -print | xkbcomp -I"$userxkb" - $DISPLAY
 fi
 
 # start some nice programs

@@ -26,7 +26,7 @@ if [ -d "$userfonts" ]; then
 fi
 
 if [ -d "$userxkb" ]; then
-    setxkbmap qwerty-fr -option -print | xkbcomp -I"$userxkb" - $DISPLAY
+    setxkbmap qwerty-fr -option ctrl:nocaps -print | xkbcomp -I"$userxkb" - $DISPLAY
 fi
 
 # start some nice programs

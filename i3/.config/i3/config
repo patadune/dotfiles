@@ -9,11 +9,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id dunst
-exec --no-startup-id redshift
-
 set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left

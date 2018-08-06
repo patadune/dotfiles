@@ -40,6 +40,10 @@ fi
 
 xset -b # Remove speaker beep
 
+nm-applet &
+blueman-applet &
+redshift &
+
 eval $(ssh-agent)
 
 exec i3

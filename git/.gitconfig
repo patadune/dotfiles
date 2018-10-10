@@ -2,29 +2,33 @@
     name = patadune
     email = patadune@gmail.com
 [alias]
-    amend = commit --amend -a
-    aa = add -A
     st = status
     ci = commit -v
     br = branch
     co = checkout
     df = diff --color
     dc = diff --color --cached
-    fetchall = fetch -v --all
+    f = fetch
     fa = fetch --all
-    pom = push origin master
+    id = rev-parse --short HEAD
+
     log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
-# With git >= 1.8.3 you can use %C(auto) for the branch decorator (%d)
     log-fancy = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
     log-me    = !UN=$(git config user.name)&& git log --author="\"$UN\"" --pretty=format:'%h %cd %s' --date=short
     log-nice  = log --graph --decorate --pretty=oneline --abbrev-commit
-    panic     = !tar cvf ../git_panic.tar *
+
 [core]
     excludesfile = ~/.gitignore
     pager = less -r
+
 [push]
     default = current
+
 [color]
     ui = auto
+
 [diff]
     renames = true
+
+[rerere]
+    enabled = 1

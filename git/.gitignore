@@ -2,11 +2,5 @@
 *.o
 .*.sw[op]
 *.py[cod]
-
-# IntelliJ IDEA
-*.iml
-*.ipr
-*.iws
-workspace.xml
-tasks.xml
-out/
+__pycache__
+.agignore

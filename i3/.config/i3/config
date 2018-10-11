@@ -29,6 +29,8 @@ hide_edge_borders both
 
 new_window normal 1
 
+workspace_layout tabbed
+
 bar {
   status_command i3status -c ~/.config/i3/i3status.conf
   position top
@@ -48,12 +50,6 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -show run
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -65,6 +61,10 @@ bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left

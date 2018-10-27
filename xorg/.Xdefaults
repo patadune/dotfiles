@@ -6,7 +6,7 @@ XTerm*eightBitControl : false
 XTerm*eightBitOutput  : true
 
 XTerm*termName: xterm-256color
-XTerm*font: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
+XTerm*font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true

@@ -78,11 +78,34 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --xdg' }
+Plug 'junegunn/fzf.vim'
+" {{{
+nnoremap <C-p> :Files<CR>
+
+nnoremap <silent> K :call SearchWordWithAg()<CR>
+vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
+
+function! SearchWordWithAg()
+  execute 'Ag' expand('<cword>')
+endfunction
+
+function! SearchVisualSelectionWithAg() range
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  let old_clipboard = &clipboard
+  set clipboard&
+  normal! ""gvy
+  let selection = getreg('"')
+  call setreg('"', old_reg, old_regtype)
+  let &clipboard = old_clipboard
+  execute 'Ag' selection
+endfunction
+
+" }}}
 Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
 Plug 'tpope/vim-sensible' " Defaults everyone can agree on
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
-Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file finder
-Plug 'mileszs/ack.vim' " Wrapper for The Silver Searcher
 
 Plug 'tpope/vim-sleuth' " Heuristically set indent type and size
 Plug 'tpope/vim-eunuch' " :SudoWrite et al.
@@ -95,16 +118,7 @@ Plug 'mhinz/vim-startify' " Nice start page (with deep quotes regarding life and
 call plug#end()
 
 " Plugins variables
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader=","
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
 
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'

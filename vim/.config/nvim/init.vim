@@ -48,17 +48,13 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Put plugins and dictionaries in this dir (also on Windows)
-" TODO : this is not portable between vim and neovim
-let vimDir = '$HOME/.vim'
-let &runtimepath.=','.vimDir
-
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-  let myUndoDir = expand(vimDir . '/undodir')
-  " Create dirs
-  call system('mkdir ' . vimDir)
-  call system('mkdir ' . myUndoDir)
+  let myUndoDir = $HOME.'/.cache/vim/undodir'
+
+  if !isdirectory(myUndoDir)
+    call system('mkdir -p ' . myUndoDir)
+  endif
   let &undodir = myUndoDir
   set undofile
 endif

@@ -1,14 +1,7 @@
 " VIM Configuration - Rémi Saurel
 
 """ Compatibility
-
-" Nvim/Vim specific configuration
-if has('nvim')
-  " Escape to get out of the terminal mode
-  tnoremap <Esc> <C-\><C-n>
-else
-  set nocompatible
-end
+set nocompatible
 
 """ General settings
 :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
@@ -35,6 +28,14 @@ set wildmode=longest,list " mimic bash completion behaviour
 
 set colorcolumn=130
 set updatetime=200
+
+set list
+set listchars=tab:•·,trail:·,extends:>,precedes:<,nbsp:×
+
+" Y behave like D or C
+nnoremap Y y$
+
+nnoremap Q @q
 
 " Natural vertical movements on wrapped lines
 map  <up> gk

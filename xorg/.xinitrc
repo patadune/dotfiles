@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.Xdefaults
 userfonts=$HOME/.local/share/fonts
 userxkb=$HOME/.local/share/xkb
 sysresources=/etc/X11/xinit/.Xresources

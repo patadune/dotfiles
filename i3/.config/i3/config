@@ -9,6 +9,24 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+
+set_from_resource $black color0
+set_from_resource $darkred color1
+set_from_resource $darkgreen color2
+set_from_resource $darkyellow color3
+set_from_resource $darkblue color4
+set_from_resource $darkmagenta color5
+set_from_resource $darkcyan color6
+set_from_resource $lightgrey color7
+set_from_resource $darkgrey color8
+set_from_resource $red color9
+set_from_resource $green color10
+set_from_resource $yellow color11
+set_from_resource $blue color12
+set_from_resource $magenta color13
+set_from_resource $cyan color14
+set_from_resource $white color15
+
 set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -36,8 +54,8 @@ bar {
   position top
   mode dock
   colors {
-    statusline #ebdbb2
-    background #282828
+    statusline $white
+    background $black
   }
 }
 

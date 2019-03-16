@@ -30,7 +30,7 @@ set colorcolumn=130
 set updatetime=200
 
 set list
-set listchars=tab:•·,trail:·,extends:>,precedes:<,nbsp:×
+set listchars=tab:>·,trail:·,extends:>,precedes:<,nbsp:×
 
 " Y behave like D or C
 nnoremap Y y$

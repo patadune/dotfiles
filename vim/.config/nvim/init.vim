@@ -66,12 +66,13 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
 
 """ Plugins
 
-" Automatic vim-plug installation
+" {{{ Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
+" }}}
 
 call plug#begin('~/.vim/bundle')
 
@@ -126,3 +127,5 @@ silent! colorscheme gruvbox
 
 "Same as */# but don't move to next/previous occurence
 nmap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+" vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:

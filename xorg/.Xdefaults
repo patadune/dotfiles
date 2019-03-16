@@ -8,6 +8,13 @@ XTerm*eightBitOutput  : true
 XTerm*termName: xterm-256color
 XTerm*font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
+XTerm*font1: -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+XTerm*font2: -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+XTerm*font3: -*-terminus-medium-*-*-*-20-*-*-*-*-*-*-*
+XTerm*font4: -*-terminus-medium-*-*-*-22-*-*-*-*-*-*-*
+XTerm*font5: -*-terminus-medium-*-*-*-24-*-*-*-*-*-*-*
+XTerm*font6: -*-terminus-medium-*-*-*-32-*-*-*-*-*-*-*
+
 XTerm*ScrollBar: false
 XTerm*ScrollKey: true
 XTerm*metaSendsEscape: true

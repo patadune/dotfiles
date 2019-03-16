@@ -76,14 +76,3 @@ reset='\[\e[0m\]'
 dateformat='%R'
 
 PS1="┌─[${usercolour}\u${atcolour}@${hostcolour}\h${atcolour}:${dircolour}\w${atcolour}]-[${hourcolour}\t${reset}]\n└> "
-
-cd
-
-if [ ! -z "${XDG_RUNTIME_DIR}" ]; then
-    # Commands to be executed before the prompt is displayed
-    # Save current working dir
-    PROMPT_COMMAND='pwd > "${XDG_RUNTIME_DIR}/.cwd"'
-
-    # Change to saved working dir
-    [[ -f "${XDG_RUNTIME_DIR}/.cwd" ]] && cd "$(< ${XDG_RUNTIME_DIR}/.cwd)"
-fi

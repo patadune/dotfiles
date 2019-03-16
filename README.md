@@ -12,4 +12,4 @@ For bash:
 * youtube-dl : for yt/mp3 bash functions
 * rofi
 * dunst
-
+* terminus-font

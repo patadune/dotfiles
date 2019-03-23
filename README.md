@@ -13,3 +13,4 @@ For bash:
 * rofi
 * dunst
 * terminus-font
+* light

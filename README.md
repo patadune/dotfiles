@@ -14,3 +14,4 @@ For bash:
 * dunst
 * terminus-font
 * light
+* redshift

@@ -8,7 +8,7 @@
 #|   ./exrandr [left|right|above|below|same|ext|off]
 #|
 
-internal=eDP1
+internal=eDP-1
 
 case $1 in
   off)  opt="--off --output $internal --auto"   ;; # internal screen only

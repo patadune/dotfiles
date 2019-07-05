@@ -56,7 +56,10 @@ alias inter="\$MEDIAPLAYER http://direct.franceinter.fr/live/franceinter-midfi.m
 
 export PATH=$HOME/.local/bin:"$PATH"
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ]; then
+    source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+    export FZF_DEFAULT_COMMAND="rg --files"
+fi
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }
 

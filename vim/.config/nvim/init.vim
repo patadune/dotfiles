@@ -16,8 +16,7 @@ set ignorecase " Ignore case on search patterns by default
 set smartcase " Become case-sensitive on search patterns if a capital letter is entered
 set hlsearch " Highlight search matches
 set incsearch
-set novisualbell " Disable visual bells
-set noerrorbells " Disable error bells
+set belloff=all
 set confirm " Enable dialog for unsaved buffers on exit
 set hidden " Hide buffer when unloaded
 set spelllang=en " English spellcheck
@@ -35,7 +34,11 @@ set listchars=tab:>·,trail:·,extends:>,precedes:<,nbsp:×
 " Y behave like D or C
 nnoremap Y y$
 
+" Quicker way to apply macros
 nnoremap Q @q
+
+" Default to full-width quicklist
+au FileType qf wincmd J
 
 " Natural vertical movements on wrapped lines
 map  <up> gk
@@ -79,16 +82,17 @@ call plug#begin('~/.vim/bundle')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --xdg' }
 Plug 'junegunn/fzf.vim'
 " {{{
+" Use rg to respect .ignore files
 nnoremap <C-p> :Files<CR>
 
-nnoremap <silent> K :call SearchWordWithAg()<CR>
-vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
+nnoremap <silent> K :call SearchWord()<CR>
+vnoremap <silent> K :call SearchVisualSelection()<CR>
 
-function! SearchWordWithAg()
-  execute 'Ag' expand('<cword>')
+function! SearchWord()
+  execute 'Rg' expand('<cword>')
 endfunction
 
-function! SearchVisualSelectionWithAg() range
+function! SearchVisualSelection() range
   let old_reg = getreg('"')
   let old_regtype = getregtype('"')
   let old_clipboard = &clipboard
@@ -97,11 +101,12 @@ function! SearchVisualSelectionWithAg() range
   let selection = getreg('"')
   call setreg('"', old_reg, old_regtype)
   let &clipboard = old_clipboard
-  execute 'Ag' selection
+  execute 'Rg' selection
 endfunction
 
 " }}}
 Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
+Plug 'airblade/vim-rooter' " Stay on project root
 Plug 'tpope/vim-sensible' " Defaults everyone can agree on
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
 

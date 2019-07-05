@@ -1,56 +1,69 @@
 " VIM Configuration - Rémi Saurel
 
-""" Compatibility
-set nocompatible
-
-""" General settings
-:autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-
-au BufNewFile,BufRead *.sv set filetype=verilog
-
+" {{{ Settings
 set nowrap " Don't wrap long lines
 set cursorline " Display underline on the current line
 set ignorecase " Ignore case on search patterns by default
 set smartcase " Become case-sensitive on search patterns if a capital letter is entered
 set hlsearch " Highlight search matches
-set incsearch
-set belloff=all
+set belloff=all " No bells ffs
 set confirm " Enable dialog for unsaved buffers on exit
 set hidden " Hide buffer when unloaded
 set spelllang=en " English spellcheck
 set clipboard=unnamed " Use system clipboard instead of internal register
 set foldmethod=syntax
-set backspace=indent,eol,start
 set wildmode=longest,list " mimic bash completion behaviour
 
 set colorcolumn=130
 set updatetime=200
 
+" Display non printable characters/trailing spaces
 set list
 set listchars=tab:>·,trail:·,extends:>,precedes:<,nbsp:×
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
+" }}}
+
+" {{{ Mappings
 " Y behave like D or C
 nnoremap Y y$
 
 " Quicker way to apply macros
 nnoremap Q @q
 
-" Default to full-width quicklist
-au FileType qf wincmd J
-
 " Natural vertical movements on wrapped lines
-map  <up> gk
-map  <down> gj
-map j gj
-map k gk
+nnoremap  <up> gk
+nnoremap  <down> gj
+nnoremap j gj
+nnoremap k gk
 
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" Quicker way to move between windows
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
-" Keep undo history across sessions by storing it in a file
+"Same as */# but don't move to next/previous occurence
+nnoremap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
+nnoremap <F10> :source $MYVIMRC<CR>
+" }}}
+
+" {{{ Auto-commands
+augroup Commands
+  autocmd!
+
+  " Highlight current word
+  autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
+  " Quick defaults to full-width
+  autocmd FileType qf wincmd J
+
+  autocmd BufNewFile,BufRead *.sv set filetype=verilog
+augroup END
+" }}}
+
+" {{{ Persistent undo history
 if has('persistent_undo')
   let myUndoDir = $HOME.'/.cache/vim/undodir'
 
@@ -60,12 +73,7 @@ if has('persistent_undo')
   let &undodir = myUndoDir
   set undofile
 endif
-
-nnoremap <F10> :so $MYVIMRC<CR>
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
-
-""" Plugins
+" }}}
 
 " {{{ Automatic vim-plug installation
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -75,6 +83,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 " }}}
 
+" {{{ Plugins
 call plug#begin('~/.vim/bundle')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --xdg' }
@@ -101,7 +110,6 @@ function! SearchVisualSelection() range
   let &clipboard = old_clipboard
   execute 'Rg' selection
 endfunction
-
 " }}}
 Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
 Plug 'airblade/vim-rooter' " Stay on project root
@@ -127,8 +135,6 @@ let g:lightline.colorscheme = 'gruvbox'
 set background=dark
 
 silent! colorscheme gruvbox
-
-"Same as */# but don't move to next/previous occurence
-nmap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+" }}}
 
 " vim: set sw=2 ts=2 et foldlevel=0 foldmethod=marker:

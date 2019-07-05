@@ -6,8 +6,6 @@ set nocompatible
 """ General settings
 :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
-au BufNewFile,BufRead *.log if getline(1) =~? '^Tarmac' | set filetype=tarmac_log | endif
-au BufNewFile,BufRead *.trs set filetype=dstb_trs
 au BufNewFile,BufRead *.sv set filetype=verilog
 
 set nowrap " Don't wrap long lines

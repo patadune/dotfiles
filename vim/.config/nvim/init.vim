@@ -46,6 +46,7 @@ nnoremap <C-l> <C-W>l
 "Same as */# but don't move to next/previous occurence
 nnoremap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
+nnoremap <F9> :edit $MYVIMRC<CR>
 nnoremap <F10> :source $MYVIMRC<CR>
 " }}}
 

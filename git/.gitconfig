@@ -10,7 +10,11 @@
     dc = diff --color --cached
     f = fetch
     fa = fetch --all
+    fc = !git fetch --all && git checkout
     id = rev-parse --short HEAD
+    up = "!f(){ git push origin \"${1:-HEAD}\":refs/for/master; };f"
+    rb = rebase
+    track = "!f(){ git branch -u \"${1:-origin/master}\"; };f"
 
     log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
     log-fancy = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative

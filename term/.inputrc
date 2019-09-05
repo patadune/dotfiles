@@ -1,3 +1,4 @@
+set meta-flag on
 set input-meta on
 set output-meta on
 set convert-meta off
@@ -10,13 +11,35 @@ set visible-stats on
 
 set bell-style none
 
+set keymap vi-command
+# Home/End
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
-"\e[7~": beginning-of-line
-"\e[8~": end-of-line
-"\eOH": beginning-of-line
-"\eOF": end-of-line
-"\e[H": beginning-of-line
-"\e[F": end-of-line
-"\ep": history-search-backward
-"\en": history-search-forward
+
+# Arrow keys for history
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+"\ep": yank-last-arg
+
+set keyseq-timeout 100
+
+# Cursor shapes for vi-style editing
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[2 q\2"
+set vi-ins-mode-string "\1\e[6 q\2"
+
+set keymap vi-insert
+# switch to block cursor before executing a command
+RETURN: "\e\n"
+
+# Home/End
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# Arrow keys for history
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+"\ep": yank-last-arg

@@ -10,6 +10,8 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
     source /usr/share/doc/pkgfile/command-not-found.bash
 fi
 
+set -o vi
+
 # History management
 HISTFILESIZE=1000000
 HISTSIZE=1000000

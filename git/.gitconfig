@@ -3,7 +3,7 @@
     email = patadune@gmail.com
 [alias]
     st = status
-    ci = commit -v
+    ci = commit
     br = branch
     co = checkout
     df = diff --color
@@ -39,3 +39,6 @@
 
 [init]
 	templatedir = ~/.git-templates
+
+[commit]
+    verbose = true

@@ -92,25 +92,13 @@ Plug 'junegunn/fzf.vim'
 " {{{
 " Use rg to respect .ignore files
 nnoremap <C-p> :Files<CR>
+" }}}
+Plug 'jesseleite/vim-agriculture' " ripgrep wrapper with support for options (e.g. word boundaries)
+" {{{
+let g:agriculture#rg_options = '--word-regexp'
 
-nnoremap <silent> K :call SearchWord()<CR>
-vnoremap <silent> K :call SearchVisualSelection()<CR>
-
-function! SearchWord()
-  execute 'Rg' expand('<cword>')
-endfunction
-
-function! SearchVisualSelection() range
-  let old_reg = getreg('"')
-  let old_regtype = getregtype('"')
-  let old_clipboard = &clipboard
-  set clipboard&
-  normal! ""gvy
-  let selection = getreg('"')
-  call setreg('"', old_reg, old_regtype)
-  let &clipboard = old_clipboard
-  execute 'Rg' selection
-endfunction
+nmap K <Plug>RgRawWordUnderCursor<CR>
+vmap K <Plug>RgRawVisualSelection<CR>
 " }}}
 Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
 Plug 'airblade/vim-rooter' " Stay on project root

@@ -6,6 +6,7 @@
     ci = commit
     br = branch
     co = checkout
+    cp = cherry-pick
     df = diff --color
     dc = diff --color --cached
     f = fetch

@@ -26,6 +26,9 @@
     excludesfile = ~/.gitignore
     pager = less -r
 
+[branch]
+    autoSetupRebase = always
+
 [push]
     default = current
     recurseSubmodules = check

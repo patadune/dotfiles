@@ -28,12 +28,14 @@
 
 [push]
     default = current
+    recurseSubmodules = check
 
 [color]
     ui = auto
 
 [diff]
     renames = true
+    submodule = log
 
 [rerere]
     enabled = 1
@@ -43,3 +45,9 @@
 
 [commit]
     verbose = true
+
+[fetch]
+    recurseSubmodules = on-demand
+
+[status]
+    submoduleSummary = true

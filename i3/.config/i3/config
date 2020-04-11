@@ -48,7 +48,7 @@ new_window pixel 1
 workspace_layout tabbed
 
 bar {
-  status_command i3status -c ~/.config/i3/i3status.conf
+  status_command i3status
   position top
   mode dock
   colors {

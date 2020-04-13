@@ -255,3 +255,4 @@ mode "$mode_system" {
 bindsym $mod+Delete mode "$mode_system"
 
 exec picom -b
+exec dunst

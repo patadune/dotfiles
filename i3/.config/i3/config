@@ -43,7 +43,8 @@ font -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-new_window pixel 1
+default_border pixel 0
+default_floating_border pixel 1
 
 workspace_layout tabbed
 

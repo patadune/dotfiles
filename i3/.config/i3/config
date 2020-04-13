@@ -63,6 +63,8 @@ bindsym $mod+m bar mode toggle
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+bindsym --release $mod+l exec slock
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

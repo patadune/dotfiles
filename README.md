@@ -18,3 +18,4 @@ For bash:
 * picom
 * light
 * redshift
+* slock

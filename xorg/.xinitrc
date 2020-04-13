@@ -1,9 +1,9 @@
 #!/bin/sh
 
-userxkb=$HOME/.local/share/xkb
+userbin=$HOME/.local/bin
 
-if [ -d "$userxkb" ]; then
-    setxkbmap qwerty-fr -option ctrl:nocaps -print | xkbcomp -I"$userxkb" - $DISPLAY
+if [ -d "$userbin" ]; then
+    $userbin/keymap
 fi
 
 xset -b # Remove speaker beep

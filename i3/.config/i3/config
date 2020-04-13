@@ -204,6 +204,7 @@ for_window [window_role="task_dialog"] floating enable
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec /usr/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause

@@ -50,7 +50,7 @@ workspace_layout tabbed
 
 bar {
   status_command i3status
-  position top
+  position bottom
   mode dock
   colors {
     statusline $white

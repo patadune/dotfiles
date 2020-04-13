@@ -201,9 +201,9 @@ for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 
 # binding pulseaudio controls to volume keys
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -USR1 -x i3status
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -USR1 -x i3status
-bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -USR1 -x i3status
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause

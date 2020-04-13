@@ -12,4 +12,6 @@ redshift &
 
 eval $(ssh-agent)
 
+export TERMINAL=alacritty
+
 exec i3

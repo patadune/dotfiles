@@ -13,6 +13,7 @@ For bash:
 * rofi
 * dunst
 * terminus-font
+* alacritty
 * autorandr
 * light
 * redshift

@@ -256,3 +256,4 @@ bindsym $mod+Delete mode "$mode_system"
 
 exec picom -b
 exec dunst
+exec redshift

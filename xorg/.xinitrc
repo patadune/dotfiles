@@ -8,7 +8,6 @@ fi
 
 xset -b # Remove speaker beep
 
-redshift &
 
 eval $(ssh-agent)
 

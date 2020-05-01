@@ -112,6 +112,10 @@ Plug 'itchyny/lightline.vim' " Nicer status bar, so light you won't notice it's 
 Plug 'shinchu/lightline-gruvbox.vim' " Seems self-explanatory...
 Plug 'wincent/terminus' " Better integration with terminal emulators and multiplexers
 Plug 'mhinz/vim-startify' " Nice start page (with deep quotes regarding life and stuff)
+Plug 'vim-python/python-syntax'
+" {{{
+let g:python_highlight_all = 1
+" }}}
 
 call plug#end()
 

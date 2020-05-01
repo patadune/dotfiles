@@ -166,6 +166,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym $mod+period workspace next
+bindsym $mod+comma workspace prev
+
 set $small "eDP-1"
 set $left "DP-2-3"
 set $center "DP-2-2"

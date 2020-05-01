@@ -1,3 +1,4 @@
 vim/.config/nvim/bundle
 vim/.config/nvim/undodir
 vim/.config/nvim/autoload
+vim/.config/nvim/.netrwhist

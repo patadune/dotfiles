@@ -22,6 +22,14 @@ set list
 set listchars=tab:>·,trail:·,extends:>,precedes:<,nbsp:×
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.pyc
+
+" True-color support
+if !has("nvim")
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+set termguicolors
 " }}}
 
 " {{{ Mappings

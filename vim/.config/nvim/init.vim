@@ -2,7 +2,6 @@
 
 " {{{ Settings
 set nowrap " Don't wrap long lines
-set cursorline " Display underline on the current line
 set ignorecase " Ignore case on search patterns by default
 set smartcase " Become case-sensitive on search patterns if a capital letter is entered
 set hlsearch " Highlight search matches
@@ -67,6 +66,9 @@ augroup Commands
 
   " Quick defaults to full-width
   autocmd FileType qf wincmd J
+
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 
   autocmd BufNewFile,BufRead *.sv set filetype=verilog
 augroup END

@@ -5,6 +5,11 @@ if [ -f /etc/bashrc ]; then
     source /etc/bashrc
 fi
 
+# Source local definitions
+if [ -f "${HOME}/.bashrc.local" ]; then
+    source "${HOME}/.bashrc.local"
+fi
+
 # Command not found helper (works on Arch, requires pkgfile)
 if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
     source /usr/share/doc/pkgfile/command-not-found.bash

@@ -44,6 +44,10 @@ nnoremap  <down> gj
 nnoremap j gj
 nnoremap k gk
 
+" Use the space key to toggle folds
+nnoremap <space> za
+vnoremap <space> zf
+
 " Quicker way to move between windows
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k

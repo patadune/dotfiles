@@ -22,7 +22,7 @@ set keymap vi-command
 
 "\ep": yank-last-arg
 
-set keyseq-timeout 100
+set keyseq-timeout 1
 
 # Cursor shapes for vi-style editing
 set editing-mode vi

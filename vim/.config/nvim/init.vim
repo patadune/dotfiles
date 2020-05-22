@@ -54,6 +54,9 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+" Disable command I never intend to type
+nnoremap q: <nop>
+
 "Same as */# but don't move to next/previous occurence
 nnoremap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 

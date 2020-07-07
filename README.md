@@ -16,6 +16,8 @@ For bash:
 * alacritty
 * autorandr
 * picom/compton
-* light
 * redshift
 * slock
+* xfce4-session
+* xfce4-settings
+* xfce4-power-manager

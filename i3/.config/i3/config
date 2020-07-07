@@ -228,16 +228,12 @@ bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec /usr/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86Display exec autorandr --change
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# binding brightness controls
-bindsym XF86MonBrightnessDown exec light -U 10
-bindsym XF86MonBrightnessUp exec light -A 10
 # }}}
 
 # {{{ System mode
@@ -261,6 +257,10 @@ bindsym $mod+Delete mode "$mode_system"
 exec compton -b
 exec dunst
 exec redshift
+exec autorandr --change
+
+exec --no-startup-id xfsettingsd --sm-client-disable
+exec --no-startup-id xfce4-power-manager
 # }}}
 
 # vim: set foldmethod=marker:

@@ -260,7 +260,6 @@ bindsym $mod+Delete mode "$mode_system"
 exec picom -b
 exec dunst
 exec redshift
-exec xbindkeys -f ~/.config/xbindkeys/config
 # }}}
 
 # vim: set foldmethod=marker:

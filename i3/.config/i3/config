@@ -258,7 +258,7 @@ bindsym $mod+Delete mode "$mode_system"
 # }}}
 
 # {{{ Auto-start programs
-exec picom -b
+exec compton -b
 exec dunst
 exec redshift
 # }}}

@@ -15,7 +15,7 @@ For bash:
 * terminus-font
 * alacritty
 * autorandr
-* picom
+* picom/compton
 * light
 * redshift
 * slock

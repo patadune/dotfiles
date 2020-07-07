@@ -77,6 +77,8 @@ augroup Commands
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 
+  autocmd VimResized * wincmd =
+
   autocmd BufNewFile,BufRead *.sv set filetype=verilog
 augroup END
 " }}}

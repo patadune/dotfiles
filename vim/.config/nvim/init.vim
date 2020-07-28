@@ -39,8 +39,8 @@ nnoremap Y y$
 nnoremap Q @q
 
 " Natural vertical movements on wrapped lines
-nnoremap  <up> gk
-nnoremap  <down> gj
+nnoremap <up> gk
+nnoremap <down> gj
 nnoremap j gj
 nnoremap k gk
 
@@ -82,9 +82,10 @@ augroup Commands
   " Highlight current word
   autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
-  " Quick defaults to full-width
+  " Quickfix defaults to full-width
   autocmd FileType qf wincmd J
 
+  " Only print cursor line on active window
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
 

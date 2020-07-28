@@ -68,6 +68,13 @@ nnoremap <F9> :edit $MYVIMRC<CR>
 nnoremap <F10> :source $MYVIMRC<CR>
 " }}}
 
+function! Osc52Yank()
+    let buffer=system('base64 -w0', @0)
+    let buffer=substitute(buffer, "\n$", "", "")
+    let buffer='\e]52;c;'.buffer.'\x07'
+    silent exe "!echo -ne ".shellescape(buffer)." > ".shellescape("/dev/tty")
+endfunction
+
 " {{{ Auto-commands
 augroup Commands
   autocmd!
@@ -84,6 +91,9 @@ augroup Commands
   autocmd VimResized * wincmd =
 
   autocmd BufNewFile,BufRead *.sv set filetype=verilog
+
+  " Emit OSC 52 escape code to set system clipboard on yank
+  autocmd TextYankPost * if v:event.operator ==# 'y' | call Osc52Yank() | endif
 augroup END
 " }}}
 

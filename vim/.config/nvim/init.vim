@@ -57,8 +57,8 @@ nnoremap <C-l> <C-W>l
 " Disable command I never intend to type
 nnoremap q: <nop>
 
-"Same as */# but don't move to next/previous occurence
-nnoremap <F5> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+"* but don't move to next occurence
+nnoremap <silent> * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 nnoremap <F9> :edit $MYVIMRC<CR>
 nnoremap <F10> :source $MYVIMRC<CR>

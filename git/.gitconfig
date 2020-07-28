@@ -2,6 +2,7 @@
     name = patadune
     email = patadune@gmail.com
 [alias]
+    ap = add --patch
     st = status
     ci = commit
     cia = commit --amend

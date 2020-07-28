@@ -60,6 +60,10 @@ nnoremap q: <nop>
 "* but don't move to next occurence
 nnoremap <silent> * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
+" n/N always search in the same direction, and center result
+nnoremap <silent> n /<CR>zz
+nnoremap <silent> N ?<CR>zz
+
 nnoremap <F9> :edit $MYVIMRC<CR>
 nnoremap <F10> :source $MYVIMRC<CR>
 " }}}

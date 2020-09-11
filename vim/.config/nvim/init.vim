@@ -138,6 +138,9 @@ vmap K <Plug>RgRawVisualSelection<CR>
 " }}}
 Plug 'airblade/vim-gitgutter' " Git status, in the gutter.
 Plug 'airblade/vim-rooter' " Stay on project root
+" {{{
+let g:rooter_patterns = ['.git']
+" }}}
 Plug 'tpope/vim-sensible' " Defaults everyone can agree on
 Plug 'tpope/vim-fugitive' " :Gblame is awesome <3
 

@@ -85,6 +85,8 @@ augroup Commands
   " Quickfix defaults to full-width
   autocmd FileType qf wincmd J
 
+  autocmd FileType gitcommit setlocal colorcolumn=72
+
   " Only print cursor line on active window
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline

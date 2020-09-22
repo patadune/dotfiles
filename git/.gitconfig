@@ -21,6 +21,7 @@
     rbc = rebase --continue
     rba = rebase --abort
     track = "!f(){ git branch -u \"${1:-origin/master}\"; };f"
+    start = "!f(){ git checkout -b \"${1}\" -t origin/master; };f"
     recent = branch --sort=-committerdate -v
 
     log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative

@@ -7,7 +7,7 @@ window:
 
 font:
   normal:
-    family: xos4 Terminus
+    family: Terminus
   size: 11.0
 
 colors:

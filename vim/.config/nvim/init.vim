@@ -60,9 +60,13 @@ nnoremap q: <nop>
 "* but don't move to next occurence
 nnoremap <silent> * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
-" n/N always search in the same direction, and center result
-nnoremap <silent> n /<CR>zz
-nnoremap <silent> N ?<CR>zz
+" make n always search forward and N backward
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
+
+" make ; always "find" forward and , backward
+nnoremap <expr> ; getcharsearch().forward ? ';' : ','
+nnoremap <expr> , getcharsearch().forward ? ',' : ';'
 
 nnoremap <F9> :edit $MYVIMRC<CR>
 nnoremap <F10> :source $MYVIMRC<CR>

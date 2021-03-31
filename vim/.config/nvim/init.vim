@@ -153,10 +153,7 @@ Plug 'tpope/vim-eunuch' " :SudoWrite et al.
 Plug 'morhetz/gruvbox' " One colorscheme to rule them all
 Plug 'wincent/terminus' " Better integration with terminal emulators and multiplexers
 Plug 'mhinz/vim-startify' " Nice start page (with deep quotes regarding life and stuff)
-Plug 'vim-python/python-syntax'
-" {{{
-let g:python_highlight_all = 1
-" }}}
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 

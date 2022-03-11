@@ -15,9 +15,9 @@ For bash:
 * terminus-font
 * alacritty
 * autorandr
-* picom/compton
+* nm-applet
 * redshift
-* slock
+* i3-lock
 * xfce4-session
 * xfce4-settings
 * xfce4-power-manager

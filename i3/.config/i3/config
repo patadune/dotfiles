@@ -34,6 +34,7 @@ workspace_layout tabbed
 bar {
   status_command i3status
   position bottom
+  tray_output primary
   mode dock
   colors {
     statusline $white
@@ -125,24 +126,29 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $wsA "A"
 
-set $small "eDP-1"
-set $left "DP-2-3"
-set $center "DP-2-2"
-set $right "DP-2-1"
+set $laptop "eDP-1"
+set $ext-dp "DP-2"
+set $ext-hdmi "HDMI-2"
+set $work-left "DP-1-8"
+set $home-left "DP-1-1"
+set $home-right "DP-1-3"
+set $work-right "DP-1-1"
 
-workspace $ws0 output $left $small
-workspace $ws1 output $center $small
-workspace $ws2 output $right $small
-workspace $ws3 output $center $small
-workspace $ws4 output $right $small
-workspace $ws5 output $center $small
-workspace $ws6 output $right $small
-workspace $ws7 output $center $small
-workspace $ws8 output $right $small
-workspace $ws9 output $center $small
-workspace $ws10 output $right $small
+workspace $ws0 output $laptop
+
+workspace $ws1 output $work-left $home-left $ext-dp $ext-hdmi $laptop
+workspace $ws3 output $work-left $home-left $ext-dp $ext-hdmi $laptop
+workspace $ws5 output $work-left $home-left $ext-dp $ext-hdmi $laptop
+workspace $ws7 output $work-left $home-left $ext-dp $ext-hdmi $laptop
+workspace $ws9 output $work-left $home-left $ext-dp $ext-hdmi $laptop
+
+workspace $ws2 output $home-right $work-right $ext-dp $ext-hdmi $laptop
+workspace $ws4 output $home-right $work-right $ext-dp $ext-hdmi $laptop
+workspace $ws6 output $home-right $work-right $ext-dp $ext-hdmi $laptop
+workspace $ws8 output $home-right $work-right $ext-dp $ext-hdmi $laptop
+workspace $wsA output $home-right $work-right $ext-dp $ext-hdmi $laptop
 
 # switch to workspace
 bindsym $mod+grave workspace $ws0
@@ -155,7 +161,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+0 workspace $wsA
 
 # move focused container to workspace
 bindsym $mod+Shift+grave move container to workspace $ws0
@@ -168,7 +174,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+0 move container to workspace $wsA
 
 bindsym $mod+period workspace next
 bindsym $mod+comma workspace prev
@@ -217,6 +223,8 @@ for_window [window_role="pop-up"]      floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="gnome-calculator"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
+for_window [title="Cisco AnyConnect Secure Mobility Client"] floating enable
+for_window [title="zoom"] floating enable
 no_focus [title="Microsoft Teams Notification"]
 no_focus [title="Loading Microsoft Teams"]
 # }}}
@@ -230,17 +238,24 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec /usr/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec "playerctl --player=%any,firefox play-pause"
+bindsym XF86AudioNext exec "playerctl --player=%any,firefox next"
+bindsym XF86AudioPrev exec "playerctl --player=%any,firefox previous"
 
+# Home keyboard emulation (assuming Menu has been remapped to Super)
+bindsym $mod+Insert exec "playerctl --player=%any,firefox play-pause"
+bindsym $mod+Home exec "playerctl --player=%any,firefox next"
+bindsym $mod+End exec "playerctl --player=%any,firefox previous"
+bindsym $mod+Next exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+Prior exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
 # }}}
 
 # {{{ System mode
-set $mode_system System (e) logout, (l) lock, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (e) logout, (l) lock, (s) sleep, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym --release l exec --no-startup-id slock, mode "default"
+    bindsym --release l exec --no-startup-id i3lock -c 141414 && xset dpms force off, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
@@ -254,13 +269,12 @@ bindsym $mod+Delete mode "$mode_system"
 # }}}
 
 # {{{ Auto-start programs
-exec compton -b
 exec /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 exec redshift
-exec autorandr --change
-
 exec --no-startup-id xfsettingsd --sm-client-disable
 exec --no-startup-id xfce4-power-manager
+exec --no-startup-id nm-applet
+exec --no-startup-id autorandr --change
 # }}}
 
 # vim: set foldmethod=marker:

@@ -51,15 +51,11 @@ fi
 
 export BROWSER="firefox"
 export TERMINAL="xterm"
+export MPLAYER="cvlc"
 
-if command -v mpv >/dev/null 2>&1; then
-    export MEDIAPLAYER="mpv"
-else
-    export MEDIAPLAYER="cvlc"
-fi
-
-alias fip="\$MEDIAPLAYER http://direct.fipradio.fr/live/fip-midfi.mp3"
-alias inter="\$MEDIAPLAYER http://direct.franceinter.fr/live/franceinter-midfi.mp3"
+alias fip="\$MPLAYER https://icecast.radiofrance.fr/fip-hifi.aac"
+alias franceinter="\$MPLAYER https://icecast.radiofrance.fr/franceinter-hifi.aac"
+alias franceinfo="\$MPLAYER https://direct.franceinfo.fr/live/franceinfo-hifi.aac"
 
 export PATH=$HOME/.local/bin:"$PATH"
 

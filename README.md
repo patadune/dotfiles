@@ -10,6 +10,7 @@ For bash:
 * bash-completion
 * pkgfile : queries in pacman database, needed for command-not-found script
 * youtube-dl : for yt/mp3 bash functions
+* vlc : for french FM radio shortcuts
 * rofi
 * dunst
 * terminus-font

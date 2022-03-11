@@ -61,7 +61,10 @@ export PATH=$HOME/.local/bin:"$PATH"
 
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ]; then
     source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
-    export FZF_DEFAULT_COMMAND="rg --files"
+
+    if command -v fdfind >/dev/null 2>&1; then
+        export FZF_DEFAULT_COMMAND="fdfind --type file --follow --hidden --exclude .git"
+    fi
 fi
 
 function mkcd () { mkdir -p "$1" && cd "$1"; }

@@ -105,13 +105,7 @@ augroup END
 " }}}
 
 " {{{ Persistent undo history
-if has('persistent_undo')
-  let myUndoDir = $HOME.'/.cache/vim/undodir'
-
-  if !isdirectory(myUndoDir)
-    call system('mkdir -p ' . myUndoDir)
-  endif
-  let &undodir = myUndoDir
+if has('nvim')
   set undofile
 endif
 " }}}

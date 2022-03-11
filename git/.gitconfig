@@ -61,7 +61,7 @@
     verbose = true
 
 [fetch]
-    recurseSubmodules = on-demand
+	recurseSubmodules = true
 
 [status]
     submoduleSummary = true

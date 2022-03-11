@@ -5,37 +5,11 @@ if [ -f "${HOME}/.zshrc.local" ]; then
     source "${HOME}/.zshrc.local"
 fi
 
-alias ls="ls -G"
-alias ll="ls -l"
-alias la="ls -a"
-alias lla="ls -al"
-alias vi="vim"
-alias h="history"
-alias c="clear"
+# Source aliases
+source "${HOME}/.aliases"
 
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
 
-if command -v nvim >/dev/null 2>&1; then
-    # Next-gen ultra futuristic neovim setup
-    export EDITOR='nvim'
-    alias vim="nvim"
-else
-    # Standard vim setup
-    export EDITOR='vim'
-fi
 
-export BROWSER="firefox"
-export TERMINAL="xterm"
-
-if command -v mpv >/dev/null 2>&1; then
-    export MEDIAPLAYER="mpv"
-else
-    export MEDIAPLAYER="cvlc"
-fi
-
-alias fip="\$MEDIAPLAYER http://direct.fipradio.fr/live/fip-midfi.mp3"
-alias inter="\$MEDIAPLAYER http://direct.franceinter.fr/live/franceinter-midfi.mp3"
 
 export PATH=$HOME/.local/bin:"$PATH"
 

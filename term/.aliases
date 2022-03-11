@@ -1,0 +1,25 @@
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -al"
+alias vi="vim"
+alias h="history"
+alias c="clear"
+alias open="xdg-open"
+
+if command -v nvim >/dev/null 2>&1; then
+    # Next-gen ultra futuristic neovim setup
+    export EDITOR="nvim"
+    alias vim="nvim"
+else
+    # Standard vim setup
+    export EDITOR="vim"
+fi
+
+export BROWSER="firefox"
+export TERMINAL="xterm"
+export MPLAYER="cvlc"
+
+alias fip="\$MPLAYER https://icecast.radiofrance.fr/fip-hifi.aac"
+alias franceinter="\$MPLAYER https://icecast.radiofrance.fr/franceinter-hifi.aac"
+alias franceinfo="\$MPLAYER https://direct.franceinfo.fr/live/franceinfo-hifi.aac"

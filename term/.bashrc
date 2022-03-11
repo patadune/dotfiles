@@ -10,10 +10,8 @@ if [ -f "${HOME}/.bashrc.local" ]; then
     source "${HOME}/.bashrc.local"
 fi
 
-# Command not found helper (works on Arch, requires pkgfile)
-if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
-    source /usr/share/doc/pkgfile/command-not-found.bash
-fi
+# Source aliases
+source "${HOME}/.aliases"
 
 set -o vi
 
@@ -27,36 +25,6 @@ PROMPT_COMMAND='history -a'
 shopt -s histappend
 shopt -s cmdhist
 
-# User specific aliases and functions
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias ls="ls --color=auto"
-alias ll="ls -l"
-alias la="ls -a"
-alias lla="ls -al"
-alias vi="vim"
-alias h="history"
-alias c="clear"
-alias open="xdg-open"
-
-if command -v nvim >/dev/null 2>&1; then
-    # Next-gen ultra futuristic neovim setup
-    export EDITOR='nvim'
-    alias vim="nvim"
-else
-    # Standard vim setup
-    export EDITOR='vim'
-fi
-
-export BROWSER="firefox"
-export TERMINAL="xterm"
-export MPLAYER="cvlc"
-
-alias fip="\$MPLAYER https://icecast.radiofrance.fr/fip-hifi.aac"
-alias franceinter="\$MPLAYER https://icecast.radiofrance.fr/franceinter-hifi.aac"
-alias franceinfo="\$MPLAYER https://direct.franceinfo.fr/live/franceinfo-hifi.aac"
-
 export PATH=$HOME/.local/bin:"$PATH"
 
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ]; then
@@ -66,8 +34,6 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ]; then
         export FZF_DEFAULT_COMMAND="fdfind --type file --follow --hidden --exclude .git"
     fi
 fi
-
-function mkcd () { mkdir -p "$1" && cd "$1"; }
 
 # fancy prompt
 linecolour='\[\e[0;37m\]'

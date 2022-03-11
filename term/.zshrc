@@ -8,8 +8,17 @@ fi
 # Source aliases
 source "${HOME}/.aliases"
 
+# Enable colors and change prompt:
+autoload -U colors && colors
+PS1="┌─[%B%{$fg[green]%}%n%{$reset_color%}%b@%B%{$fg[yellow]%}%M%b:%B%{$fg[blue]%}%~%b%{$reset_color%}]"$'\n'"└> "
 
+autoload -U +X compinit && compinit
 
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
 
 export PATH=$HOME/.local/bin:"$PATH"
 
@@ -30,7 +39,13 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 
 zinit load jeffreytse/zsh-vi-mode
+zinit load zsh-users/zsh-syntax-highlighting
 zinit load zsh-users/zsh-history-substring-search
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+bindkey -a '^[[H' beginning-of-line
+bindkey -a '^[[F' end-of-line
+
+export ZVM_ESCAPE_KEYTIMEOUT=0.01

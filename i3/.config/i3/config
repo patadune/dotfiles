@@ -255,7 +255,7 @@ bindsym $mod+Delete mode "$mode_system"
 
 # {{{ Auto-start programs
 exec compton -b
-exec dunst
+exec /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 exec redshift
 exec autorandr --change
 

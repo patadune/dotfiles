@@ -9,19 +9,23 @@
     br = branch
     co = checkout
     cp = cherry-pick
+    cpc = cherry-pick --continue
+    cpa = cherry-pick --abort
     df = diff --color
     dc = diff --color --cached
     f = fetch
     fa = fetch --all
-    fc = !git fetch --all && git checkout
     id = rev-parse --short HEAD
     up = "!f(){ git push origin \"${1:-HEAD}\":refs/for/master; };f"
     rb = rebase
     rbi = rebase --interactive
     rbc = rebase --continue
     rba = rebase --abort
+    rbs = rebase --skip
+    pl = pull
+    pli = pull --rebase=interactive
     track = "!f(){ git branch -u \"${1:-origin/master}\"; };f"
-    start = "!f(){ git checkout -b \"${1}\" -t origin/master; };f"
+    start = "!f(){ git checkout -b \"${1}\" && git branch -u origin/master; };f"
     recent = branch --sort=-committerdate -v
 
     log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
@@ -61,9 +65,10 @@
     verbose = true
 
 [fetch]
-	recurseSubmodules = true
+    recurseSubmodules = true
 
 [status]
     submoduleSummary = true
+
 [pull]
-	rebase = true
+    rebase = true

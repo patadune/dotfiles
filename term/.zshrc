@@ -20,11 +20,27 @@ setopt HIST_IGNORE_ALL_DUPS
 
 export PATH=$HOME/.local/bin:"$PATH"
 
-# Activate vim mode
+# Activate vi mode
 bindkey -v
 
-bindkey -v '^?' backward-delete-char
-bindkey -v "^W" backward-kill-word
+# Override vi-compatible behavior
+bindkey -M viins "^?" backward-delete-char
+bindkey -M viins "^W" backward-kill-word
+
+# Enable prefix search with arrow keys
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+bindkey "^[OA" history-beginning-search-backward
+bindkey "^[OB" history-beginning-search-forward
+
+# Make Home/End work under tmux (with $TERM=screen-256-color)
+bindkey "\E[1~" beginning-of-line
+bindkey "\E[4~" end-of-line
+
+# When in doubt, revert to the real deal
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Remove mode switching delay
 KEYTIMEOUT=5
@@ -67,7 +83,3 @@ autoload -Uz _zi
 # examples here -> https://z-shell.pages.dev/docs/gallery/collection
 
 zi load zsh-users/zsh-syntax-highlighting
-zi load zsh-users/zsh-history-substring-search
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down

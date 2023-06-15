@@ -1,0 +1,15 @@
+#!/bin/bash
+# Possible values:
+# - fip
+# - fiprock
+# - fipjazz
+# - fipgroove
+# - fipworld
+# - fipnouveautes
+# - fipreggae
+# - fipelectro
+# - franceinter
+# - franceinfo
+# - franceculture
+
+$MPLAYER "https://icecast.radiofrance.fr/${1:-franceinter}-hifi.aac"

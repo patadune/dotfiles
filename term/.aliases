@@ -19,7 +19,3 @@ fi
 export BROWSER="firefox"
 export TERMINAL="xterm"
 export MPLAYER="cvlc"
-
-alias fip="\$MPLAYER https://icecast.radiofrance.fr/fip-hifi.aac"
-alias franceinter="\$MPLAYER https://icecast.radiofrance.fr/franceinter-hifi.aac"
-alias franceinfo="\$MPLAYER https://direct.franceinfo.fr/live/franceinfo-hifi.aac"

@@ -2,50 +2,32 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set_from_resource $black color0
-set_from_resource $darkred color1
-set_from_resource $darkgreen color2
-set_from_resource $darkyellow color3
-set_from_resource $darkblue color4
-set_from_resource $darkmagenta color5
-set_from_resource $darkcyan color6
-set_from_resource $lightgrey color7
-set_from_resource $darkgrey color8
-set_from_resource $red color9
-set_from_resource $green color10
-set_from_resource $yellow color11
-set_from_resource $blue color12
-set_from_resource $magenta color13
-set_from_resource $cyan color14
-set_from_resource $white color15
-
 set $mod Mod4
 
-font -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+font pango:Terminus (TTF) 12px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-default_border pixel 0
+default_border pixel 1
 default_floating_border pixel 1
-
 workspace_layout tabbed
 
 bar {
-  status_command i3status
+  status_command "i3pystatus -c ~/.config/i3/status.py"
   position bottom
   tray_output primary
   mode dock
   colors {
-    statusline $white
-    background $black
+    statusline #ebdbb2
+    background #282828
   }
 }
 
 bindsym $mod+m bar mode toggle
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec x-terminal-emulator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -55,24 +37,12 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # move focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -131,10 +101,10 @@ set $wsA "A"
 set $laptop "eDP-1"
 set $ext-dp "DP-2"
 set $ext-hdmi "HDMI-2"
-set $work-left "DP-1-8"
+set $work-left "DP-2-8"
 set $home-left "DP-1-1"
 set $home-right "DP-1-3"
-set $work-right "DP-1-1"
+set $work-right "DP-2-1"
 
 workspace $ws0 output $laptop
 
@@ -186,8 +156,6 @@ bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # {{{ Resize mode
 mode "resize" {
@@ -197,12 +165,6 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -218,13 +180,15 @@ bindsym $mod+r mode "resize"
 # }}}
 
 # {{{ Window rules
-for_window [class="Alacritty"] border pixel 1
-for_window [window_role="pop-up"]      floating enable
+for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="gnome-calculator"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="Cisco AnyConnect Secure Mobility Client"] floating enable
-for_window [title="zoom"] floating enable
+for_window [instance="zoom"] floating enable
+for_window [instance="join"] floating enable
+for_window [title="Zoom - Licensed Account"] floating disable
+for_window [title="Zoom Meeting"] floating disable
 no_focus [title="Microsoft Teams Notification"]
 no_focus [title="Loading Microsoft Teams"]
 # }}}
@@ -250,31 +214,14 @@ bindsym $mod+Next exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Prior exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
 # }}}
 
-# {{{ System mode
-set $mode_system System (e) logout, (l) lock, (s) sleep, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym --release l exec --no-startup-id i3lock -c 141414 && xset dpms force off, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Delete mode "$mode_system"
+# {{{ Lock/logout controls
+bindsym $mod+l exec --no-startup-id i3lock && xset dpms force off
+bindsym $mod+Delete exec --no-startup-id xfce4-session-logout
 # }}}
 
 # {{{ Auto-start programs
-exec /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
-exec redshift
-exec --no-startup-id xfsettingsd --sm-client-disable
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id nm-applet
-exec --no-startup-id autorandr --change
+exec --no-startup-id ~/.local/bin/keymap
+exec --no-startup-id ~/.fehbg
 # }}}
 
 # vim: set foldmethod=marker:

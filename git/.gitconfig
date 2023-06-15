@@ -35,7 +35,7 @@
 
 [core]
     excludesfile = ~/.gitignore
-    pager = less -r
+    pager = delta
 
 [branch]
     autoSetupRebase = always
@@ -72,3 +72,17 @@
 
 [pull]
     rebase = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    syntax-theme = gruvbox-dark
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

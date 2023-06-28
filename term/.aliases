@@ -16,6 +16,10 @@ else
     export EDITOR="vim"
 fi
 
+if command -v autossh >/dev/null 2>&1; then
+	alias ssh="autossh"
+fi
+
 export BROWSER="firefox"
 export TERMINAL="xterm"
 export MPLAYER="cvlc"

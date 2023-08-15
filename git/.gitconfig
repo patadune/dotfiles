@@ -54,12 +54,14 @@
 [diff]
     renames = true
     submodule = log
+    colorMoved = default
 
 [rerere]
     enabled = 1
 
 [init]
     templatedir = ~/.git-templates
+    defaultBranch = main
 
 [commit]
     verbose = true

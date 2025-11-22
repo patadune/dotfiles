@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-userxkb=$HOME/.local/share/xkb
-setxkbmap qwerty-fr -option caps:escape -print | xkbcomp -I"$userxkb" - $DISPLAY
-xmodmap -e "keysym Menu = Super_R"

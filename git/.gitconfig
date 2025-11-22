@@ -60,7 +60,6 @@
     enabled = 1
 
 [init]
-    templatedir = ~/.git-templates
     defaultBranch = main
 
 [commit]

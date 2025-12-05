@@ -15,8 +15,8 @@ PS1="┌─[%B%{$fg[green]%}%n%{$reset_color%}%b@%B%{$fg[yellow]%}%M%b:%B%{$fg[b
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt APPEND_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+setopt HIST_SAVE_NO_DUPS
 
 export PATH=$HOME/.local/bin:"$PATH"
 
@@ -28,19 +28,16 @@ bindkey -M viins "^?" backward-delete-char
 bindkey -M viins "^W" backward-kill-word
 
 # Enable prefix search with arrow keys
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-bindkey "^[OA" history-beginning-search-backward
-bindkey "^[OB" history-beginning-search-forward
-
-# Make Home/End work under tmux (with $TERM=screen-256-color)
-bindkey "\E[1~" beginning-of-line
-bindkey "\E[4~" end-of-line
+bindkey "\e[A" history-beginning-search-backward
+bindkey "\e[B" history-beginning-search-forward
 
 # When in doubt, revert to the real deal
 autoload edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+# Initialize completion
+autoload -U compinit; compinit
 
 # Remove mode switching delay
 KEYTIMEOUT=5
@@ -68,18 +65,7 @@ precmd() {
    echo -ne '\e[5 q'
 }
 
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
-
-if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
-  command mkdir -p "$HOME/.zi" && command chmod g-rwX "$HOME/.zi"
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+if command -v fzf >/dev/null 2>&1; then
+  # Set up fzf key bindings and fuzzy completion
+  source <(fzf --zsh)
 fi
-source "$HOME/.zi/bin/zi.zsh"
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
-# examples here -> https://z-shell.pages.dev/docs/gallery/collection
-
-zi load zsh-users/zsh-syntax-highlighting
